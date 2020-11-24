@@ -23,9 +23,6 @@
       	margin: auto;
       }
 
-
-
-
     </style>
   </head>
 
@@ -37,7 +34,6 @@
         <button id="start_btn">Start Game!</button>
 
     </div>
-
 
     <div id="playing" class="hidden">
 		Game UI Here
@@ -80,13 +76,6 @@
 		let encounter_text = document.getElementById("encounter_text")
 		let explore_button = document.getElementById('explore_btn')
 		let catch_button = document.getElementById('catch_btn')
-
-    var commons = ['sprites_common/pikachu.gif', 'https://cdn.staticneo.com/w/pokemon/0/03/230.gif']
-    var legendaries = ['sprites_legendary/reshiram.gif']
-    const rarities = [
-      ['Common', 2],
-      ['Legendary', 1]
-    ]
 
     pokemonDict = { 'Chikorita': ['https://cdn.staticneo.com/w/pokemon/5/56/152.gif'],
 'Bayleef': ['https://cdn.staticneo.com/w/pokemon/d/da/153.gif'],
@@ -187,9 +176,128 @@
 'Tyranitar': ['https://cdn.staticneo.com/w/pokemon/5/52/248.gif'],
 'Lugia': ['https://cdn.staticneo.com/w/pokemon/b/b4/249.gif'],
 'Ho-oh': ['https://cdn.staticneo.com/w/pokemon/7/72/250.gif'],
-'Celebi': ['https://cdn.staticneo.com/w/pokemon/c/c8/251.gif'] }
+'Celebi': ['https://cdn.staticneo.com/w/pokemon/c/c8/251.gif'],
+'Chikorita': 'https://cdn.staticneo.com/w/pokemon/5/56/152.gif',
+'Bayleef': 'https://cdn.staticneo.com/w/pokemon/d/da/153.gif',
+'Meganium': 'https://cdn.staticneo.com/w/pokemon/0/04/154.gif',
+'Cyndaquil': 'https://cdn.staticneo.com/w/pokemon/e/e1/155.gif',
+'Quilava': 'https://cdn.staticneo.com/w/pokemon/6/6a/156.gif',
+'Typhlosion': 'https://cdn.staticneo.com/w/pokemon/a/a0/157.gif',
+'Totodile': 'https://cdn.staticneo.com/w/pokemon/1/1b/158.gif',
+'Croconaw': 'https://cdn.staticneo.com/w/pokemon/6/60/159.gif',
+'Feraligatr': 'https://cdn.staticneo.com/w/pokemon/a/ab/160.gif',
+'Sentret': 'https://cdn.staticneo.com/w/pokemon/d/d3/161.gif',
+'Furret': 'https://cdn.staticneo.com/w/pokemon/2/25/162.gif',
+'Hoothoot': 'https://cdn.staticneo.com/w/pokemon/9/9b/163.gif',
+'Noctowl': 'https://cdn.staticneo.com/w/pokemon/b/b2/164.gif',
+'Ledyba': 'https://cdn.staticneo.com/w/pokemon/d/da/165.gif',
+'Ledian': 'https://cdn.staticneo.com/w/pokemon/f/f0/166.gif',
+'Spinarak': 'https://cdn.staticneo.com/w/pokemon/4/48/167.gif',
+'Ariados': 'https://cdn.staticneo.com/w/pokemon/f/f6/168.gif',
+'Crobat': 'https://cdn.staticneo.com/w/pokemon/e/e6/169.gif',
+'Chinchou': 'https://cdn.staticneo.com/w/pokemon/d/de/170.gif',
+'Lanturn': 'https://cdn.staticneo.com/w/pokemon/6/68/171.gif',
+'Pichu': 'https://cdn.staticneo.com/w/pokemon/f/f7/172.gif',
+'Cleffa': 'https://cdn.staticneo.com/w/pokemon/b/bf/173.gif',
+'Igglybuff': 'https://cdn.staticneo.com/w/pokemon/2/23/174.gif',
+'Togepi': 'https://cdn.staticneo.com/w/pokemon/e/ee/175.gif',
+'Togetic': 'https://cdn.staticneo.com/w/pokemon/3/33/176.gif',
+'Natu': 'https://cdn.staticneo.com/w/pokemon/0/0f/177.gif',
+'Xatu': 'https://cdn.staticneo.com/w/pokemon/f/f8/178.gif',
+'Mareep': 'https://cdn.staticneo.com/w/pokemon/9/99/179.gif',
+'Flaaffy': 'https://cdn.staticneo.com/w/pokemon/a/a0/180.gif',
+'Ampharos': 'https://cdn.staticneo.com/w/pokemon/c/cb/181.gif',
+'Bellossom': 'https://cdn.staticneo.com/w/pokemon/1/1c/182.gif',
+'Marill': 'https://cdn.staticneo.com/w/pokemon/a/a6/183.gif',
+'Azumarill': 'https://cdn.staticneo.com/w/pokemon/1/13/184.gif',
+'Sudowoodo': 'https://cdn.staticneo.com/w/pokemon/4/4e/185.gif',
+'Politoed': 'https://cdn.staticneo.com/w/pokemon/4/49/186.gif',
+'Hoppip': 'https://cdn.staticneo.com/w/pokemon/2/2f/187.gif',
+'Skiploom': 'https://cdn.staticneo.com/w/pokemon/1/17/188.gif',
+'Jumpluff': 'https://cdn.staticneo.com/w/pokemon/e/e7/189.gif',
+'Aipom': 'https://cdn.staticneo.com/w/pokemon/8/8b/190.gif',
+'Sunkern': 'https://cdn.staticneo.com/w/pokemon/3/33/191.gif',
+'Sunflora': 'https://cdn.staticneo.com/w/pokemon/b/bb/192.gif',
+'Yanma': 'https://cdn.staticneo.com/w/pokemon/2/2e/193.gif',
+'Wooper': 'https://cdn.staticneo.com/w/pokemon/b/bb/194.gif',
+'Quagsire': 'https://cdn.staticneo.com/w/pokemon/c/ce/195.gif',
+'Espeon': 'https://cdn.staticneo.com/w/pokemon/c/c5/196.gif',
+'Umbreon': 'https://cdn.staticneo.com/w/pokemon/d/d8/197.gif',
+'Murkrow': 'https://cdn.staticneo.com/w/pokemon/c/ca/198.gif',
+'Slowking': 'https://cdn.staticneo.com/w/pokemon/3/31/199.gif',
+'Misdreavus': 'https://cdn.staticneo.com/w/pokemon/1/18/200.gif',
+'Unown': 'https://cdn.staticneo.com/w/pokemon/4/42/201.gif',
+'Wobbuffet': 'https://cdn.staticneo.com/w/pokemon/1/1c/202.gif',
+'Girafarig': 'https://cdn.staticneo.com/w/pokemon/d/d3/203.gif',
+'Pineco': 'https://cdn.staticneo.com/w/pokemon/4/40/204.gif',
+'Forretress': 'https://cdn.staticneo.com/w/pokemon/1/19/205.gif',
+'Dunsparce': 'https://cdn.staticneo.com/w/pokemon/e/eb/206.gif',
+'Gligar': 'https://cdn.staticneo.com/w/pokemon/7/73/207.gif',
+'Steelix': 'https://cdn.staticneo.com/w/pokemon/0/0f/208.gif',
+'Snubbull': 'https://cdn.staticneo.com/w/pokemon/6/61/209.gif',
+'Granbull': 'https://cdn.staticneo.com/w/pokemon/b/b9/210.gif',
+'Qwilfish': 'https://cdn.staticneo.com/w/pokemon/c/cc/211.gif',
+'Scizor': 'https://cdn.staticneo.com/w/pokemon/7/72/212.gif',
+'Shuckle': 'https://cdn.staticneo.com/w/pokemon/3/34/213.gif',
+'Heracross': 'https://cdn.staticneo.com/w/pokemon/a/a1/214.gif',
+'Sneasel': 'https://cdn.staticneo.com/w/pokemon/7/7d/215.gif',
+'Teddiursa': 'https://cdn.staticneo.com/w/pokemon/c/c0/216.gif',
+'Ursaring': 'https://cdn.staticneo.com/w/pokemon/9/9f/217.gif',
+'Slugma': 'https://cdn.staticneo.com/w/pokemon/6/65/218.gif',
+'Magcargo': 'https://cdn.staticneo.com/w/pokemon/e/ec/219.gif',
+'Swinub': 'https://cdn.staticneo.com/w/pokemon/d/df/220.gif',
+'Piloswine': 'https://cdn.staticneo.com/w/pokemon/f/f7/221.gif',
+'Corsola': 'https://cdn.staticneo.com/w/pokemon/d/d0/222.gif',
+'Remoraid': 'https://cdn.staticneo.com/w/pokemon/9/94/223.gif',
+'Octillery': 'https://cdn.staticneo.com/w/pokemon/7/7d/224.gif',
+'Delibird': 'https://cdn.staticneo.com/w/pokemon/b/ba/225.gif',
+'Mantine': 'https://cdn.staticneo.com/w/pokemon/d/d9/226.gif',
+'Skarmory': 'https://cdn.staticneo.com/w/pokemon/7/71/227.gif',
+'Houndour': 'https://cdn.staticneo.com/w/pokemon/4/42/228.gif',
+'Houndoom': 'https://cdn.staticneo.com/w/pokemon/7/79/229.gif',
+'Kingdra': 'https://cdn.staticneo.com/w/pokemon/0/03/230.gif',
+'Phanpy': 'https://cdn.staticneo.com/w/pokemon/f/f1/231.gif',
+'Donphan': 'https://cdn.staticneo.com/w/pokemon/0/01/232.gif',
+'Porygon2': 'https://cdn.staticneo.com/w/pokemon/5/54/233.gif',
+'Stantler': 'https://cdn.staticneo.com/w/pokemon/4/47/234.gif',
+'Smeargle': 'https://cdn.staticneo.com/w/pokemon/2/25/235.gif',
+'Tyrogue': 'https://cdn.staticneo.com/w/pokemon/7/75/236.gif',
+'Hitmontop': 'https://cdn.staticneo.com/w/pokemon/8/85/237.gif',
+'Smoochum': 'https://cdn.staticneo.com/w/pokemon/f/f9/238.gif',
+'Elekid': 'https://cdn.staticneo.com/w/pokemon/d/dd/239.gif',
+'Magby': 'https://cdn.staticneo.com/w/pokemon/0/0c/240.gif',
+'Miltank': 'https://cdn.staticneo.com/w/pokemon/5/5e/241.gif',
+'Blissey': 'https://cdn.staticneo.com/w/pokemon/9/98/242.gif',
+'Raikou': 'https://cdn.staticneo.com/w/pokemon/4/4c/243.gif',
+'Entei': 'https://cdn.staticneo.com/w/pokemon/7/7f/244.gif',
+'Suicune': 'https://cdn.staticneo.com/w/pokemon/2/2f/245.gif',
+'Larvitar': 'https://cdn.staticneo.com/w/pokemon/f/f5/246.gif',
+'Pupitar': 'https://cdn.staticneo.com/w/pokemon/3/3f/247.gif',
+'Tyranitar': 'https://cdn.staticneo.com/w/pokemon/5/52/248.gif',
+'Lugia': 'https://cdn.staticneo.com/w/pokemon/b/b4/249.gif',
+'Ho-oh': 'https://cdn.staticneo.com/w/pokemon/7/72/250.gif',
+'Celebi': 'https://cdn.staticneo.com/w/pokemon/c/c8/251.gif' }
 
-    console.log("yo iwaj", pokemonDict)
+    var commons = []
+    var legendaries = []
+    const rarities = [
+      ['Common', 100],
+      ['Legendary', 1]
+    ]
+
+    legendaryKeys = ['Raikou', 'Entei', 'Suicune', 'Lugia', 'Ho-Oh', 'Celebi']
+
+    for (var item in pokemonDict) {
+      if( legendaryKeys.includes(item) ){
+        legendaries.push( [pokemonDict[item], item] )
+      }
+      else{
+        commons.push([pokemonDict[item], item])
+      }
+    }
+
+    console.log(legendaries)
+    console.log(commons)
 
     var choice;
 
@@ -199,9 +307,6 @@
         total += rarities[i][1];
       }
       let threshold = Math.floor(Math.random() * total);
-      if(threshold == 0){
-        threshold += 1 // atm generates 0 - 3 without adding 1, makes common even more heavy
-      }
       console.log("threshold is : ", threshold)
       total = 0;
       for (let i = 0; i < rarities.length; ++i) {
@@ -217,9 +322,9 @@
 		var assets = []
 		var encounter = []
 
-        start_button.onclick = function(event) {
-        	start_panel.classList.add('hidden')
-        	playing_panel.classList.remove('hidden')
+    start_button.onclick = function(event) {
+      start_panel.classList.add('hidden')
+      playing_panel.classList.remove('hidden')
 		}
 
 		catch_button.disabled = true;
@@ -234,18 +339,17 @@
         assets = legendaries;
       }
 			let i = parseInt( Math.random() * assets.length )
-			encounter.push(assets[i])
+			encounter.push(assets[i][0])
 
 			//add our enounter text
 			$("#encounter_text").css({opacity:100});
-			let encounter_name = assets[i].substring(8).split(".")[0]
-			encounter_name = encounter_name.charAt(0).toUpperCase() + encounter_name.slice(1);
+			let encounter_name = assets[i][1]
 			encounter_text.innerHTML = "You have encountered a wild " + encounter_name + "!"
 
 
 			// add our encounter sprite
             let curr_encounter = document.createElement('img')
-            curr_encounter.src = assets[i]
+            curr_encounter.src = assets[i][0]
             curr_encounter.style.margin = 'auto'
             curr_encounter.style.width = '190px'
             curr_encounter.style.height = '165px'
