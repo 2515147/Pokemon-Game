@@ -7,6 +7,23 @@
         display: none;
       }
 
+      #encounter_text{
+      	height: 30px;
+      	text-align: center;
+      	padding-top: 15px;
+      	margin: auto;
+      }
+
+      #sprite_container{
+      	height: 225px;
+      	width: 225px;
+      	padding-top: 50px;
+      	padding-bottom: -45px
+      	text-align: center;
+      	margin: auto;
+      }
+
+
     </style>
   </head>
 
@@ -23,10 +40,16 @@
     <div id="playing" class="hidden">
 		Game UI Here
 		<br>
-      	Example Sprite
-      <!-- pokeballs will go here -->
-		<div id="sprite_container"></div>
-			<img src="sprites/reshiram.gif">
+      	
+      	<div id="encounter_text">
+      	</div>
+        <!-- sprites will go here -->
+		<div id="sprite_container">
+
+		</div>
+
+		<button id="explore_btn">Explore</button>
+		<button id="catch_btn">Catch!</button>
     	</div>
 
 
@@ -40,16 +63,64 @@
    	  	document.getElementById("playing").style.textAlign = 'center'
    	  	document.getElementById("playing").style.margin = 'auto'
 
-
 		let start_button = document.getElementById('start_btn')
 		let start_panel = document.getElementById("start")
 		let playing_panel = document.getElementById("playing")
+		let sprite_container = document.getElementById("sprite_container")
+		let encounter_text = document.getElementById("encounter_text")
+		let explore_button = document.getElementById('explore_btn')
+		let catch_button = document.getElementById('catch_btn')
+
+
+		var assets = ['sprites/reshiram.gif', 'sprites/pikachu.gif']
+		var encounter = []
 
         start_button.onclick = function(event) {
         	start_panel.classList.add('hidden')
         	playing_panel.classList.remove('hidden')
 		}
 
+		explore_button.addEventListener("click", function(){
+
+			let i = parseInt( Math.random() * assets.length )
+			encounter.push(assets[i])
+
+			//add our enounter text
+			let encounter_name = assets[i].substring(8).split(".")[0]
+			encounter_name = encounter_name.charAt(0).toUpperCase() + encounter_name.slice(1);
+			encounter_text.innerHTML = "You have encountered " + encounter_name + "!"
+
+
+			// add our encounter sprite
+            let curr_encounter = document.createElement('img')
+            curr_encounter.src = assets[i]
+            curr_encounter.style.margin = 'auto'
+            curr_encounter.style.width = '190px'
+            curr_encounter.style.height = '165px'
+            sprite_container.appendChild(curr_encounter)
+			explore_button.disabled = true;
+
+
+		});
+
+
+		catch_button.addEventListener("click", function(){
+			encounter_text.innerHTML = ""
+            sprite_container.innerHTML = ""
+			encounter.pop()
+			explore_button.disabled = false;
+		});
+
+
+		// shuffle function if necessary
+		function shuffle(array) { 
+    		for (var i = array.length - 1; i > 0; i--) {
+        		var j = Math.floor(Math.random() * (i + 1));
+        		var temp = array[i];
+        		array[i] = array[j];
+        		array[j] = temp;
+    	}
+    }
     </script>
 
   </body>
