@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Pokemon</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+
+    </style>
+  </head>
+
+  <body>
+  	
+	<div id="start">
+		<b>Pok&eacutemon</b>
+        <p>Lorem Ipsum</p>
+        <button id="start_btn">Start Game!</button>
+
+    </div>
+
+
+    <div id="playing" class="hidden">
+		Game UI Here
+		<br>
+      	Example Sprite
+      <!-- pokeballs will go here -->
+		<div id="sprite_container"></div>
+			<img src="sprites/reshiram.gif">
+    	</div>
+
+
+    <script>
+		document.body.style.backgroundColor = '#373737'
+		document.getElementById("start").style.color = 'white'
+		document.getElementById("start").style.textAlign = 'center'
+		document.getElementById("start").style.margin = 'auto'
+
+		document.getElementById("playing").style.color = 'white'
+   	  	document.getElementById("playing").style.textAlign = 'center'
+   	  	document.getElementById("playing").style.margin = 'auto'
+
+
+		let start_button = document.getElementById('start_btn')
+		let start_panel = document.getElementById("start")
+		let playing_panel = document.getElementById("playing")
+
+        start_button.onclick = function(event) {
+        	start_panel.classList.add('hidden')
+        	playing_panel.classList.remove('hidden')
+		}
+
+    </script>
+
+  </body>
+
+</html>
+
