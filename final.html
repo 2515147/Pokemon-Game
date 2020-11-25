@@ -105,10 +105,10 @@
 'raichu': 'https://projectpokemon.org/images/normal-sprite/raichu.gif',
 'sandshrew': 'https://projectpokemon.org/images/normal-sprite/sandshrew.gif',
 'sandslash': 'https://projectpokemon.org/images/normal-sprite/sandslash.gif',
-'nidoran_f': 'https://projectpokemon.org/images/normal-sprite/nidoran_f.gif',
+'nidoran (female)': 'https://projectpokemon.org/images/normal-sprite/nidoran_f.gif',
 'nidorina': 'https://projectpokemon.org/images/normal-sprite/nidorina.gif',
 'nidoqueen': 'https://projectpokemon.org/images/normal-sprite/nidoqueen.gif',
-'nidoran_m': 'https://projectpokemon.org/images/normal-sprite/nidoran_m.gif',
+'nidoran': 'https://projectpokemon.org/images/normal-sprite/nidoran_m.gif',
 'nidorino': 'https://projectpokemon.org/images/normal-sprite/nidorino.gif',
 'nidoking': 'https://projectpokemon.org/images/normal-sprite/nidoking.gif',
 'clefairy': 'https://projectpokemon.org/images/normal-sprite/clefairy.gif',
@@ -258,10 +258,10 @@ shiny_pokemon_dict = {
 'raichu': 'https://projectpokemon.org/images/shiny-sprite/raichu.gif',
 'sandshrew': 'https://projectpokemon.org/images/shiny-sprite/sandshrew.gif',
 'sandslash': 'https://projectpokemon.org/images/shiny-sprite/sandslash.gif',
-'nidoran_f': 'https://projectpokemon.org/images/shiny-sprite/nidoran_f.gif',
+'nidoran (female)': 'https://projectpokemon.org/images/shiny-sprite/nidoran_f.gif',
 'nidorina': 'https://projectpokemon.org/images/shiny-sprite/nidorina.gif',
 'nidoqueen': 'https://projectpokemon.org/images/shiny-sprite/nidoqueen.gif',
-'nidoran_m': 'https://projectpokemon.org/images/shiny-sprite/nidoran_m.gif',
+'nidoran': 'https://projectpokemon.org/images/shiny-sprite/nidoran_m.gif',
 'nidorino': 'https://projectpokemon.org/images/shiny-sprite/nidorino.gif',
 'nidoking': 'https://projectpokemon.org/images/shiny-sprite/nidoking.gif',
 'clefairy': 'https://projectpokemon.org/images/shiny-sprite/clefairy.gif',
@@ -459,17 +459,23 @@ console.log(shiny_pokemon_dict)
 
 			//add our enounter text
 			$("#encounter_text").css({opacity:100});
+
 			let encounter_name = assets[i][1]
       encounter_name = encounter_name.charAt(0).toUpperCase() + encounter_name.slice(1)
-			encounter_text.innerHTML = "You have encountered a wild " + encounter_name + "!"
+			if(assets == shinies){
+				encounter_text.innerHTML = "You have encountered a wild Shiny " + encounter_name + "!"
+			}
+			else{
+				encounter_text.innerHTML = "You have encountered a wild " + encounter_name + "!"
+			}
 
 
 			// add our encounter sprite
             let curr_encounter = document.createElement('img')
             curr_encounter.src = assets[i][0]
             curr_encounter.style.margin = 'auto'
-            curr_encounter.style.width = '130px'
-            curr_encounter.style.height = '135px'
+            curr_encounter.style.width = '190px'
+            curr_encounter.style.height = '165px'
             sprite_container.appendChild(curr_encounter)
        		catch_button.disabled = false;
 			explore_button.disabled = true;
@@ -481,7 +487,7 @@ console.log(shiny_pokemon_dict)
 		catch_button.addEventListener("click", function(){
 
 			encounter_text.innerHTML = "Pokemon sucessfully caught!";
-			$("#encounter_text").animate({opacity:0},1000);
+			$("#encounter_text").animate({opacity:0},1001);
 
 
 			setTimeout(function(){
