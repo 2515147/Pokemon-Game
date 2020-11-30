@@ -18,13 +18,12 @@
 
           <?php
 
-            if ($_GET['loginerror']) { ?>
+            if ($_GET['loginerror'] == 'yes') { ?>
 
               <p>Error logging in!</p>
 
             <?php } ?>
-
-
+            
           <?php
 
             // check to see if they are logged in
@@ -44,6 +43,7 @@
               <input type="submit">
 
             </form>
+            <a href="register.php"> Register </a>
             <?php
 
           }

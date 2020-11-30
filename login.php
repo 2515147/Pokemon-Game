@@ -36,7 +36,7 @@
       exit();
     }
   }
-  header('Location: final.php?loginerror=yes');
+  header('Location: loginpage.php?loginerror=yes');
   exit();
 
  ?>
