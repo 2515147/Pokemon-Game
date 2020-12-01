@@ -4,7 +4,11 @@ $password = $_POST['pass'];
 
 include('config.php');
 if(!$username || !$password){
-    header('Location: loginpage.php?loginerror=missing_register');
+    header('Location: loginpage.php?registererror=missing_register');
+    exit();
+}
+if(strlen($username) < 5 || strlen($password) < 6){
+    header('Location: loginpage.php?registererror=minimum_error');
     exit();
 }
 $data = file_get_contents($file_path . '/accounts.txt');
