@@ -1,3 +1,6 @@
+/* DISCLAIMER: This JS/CSS for the login page used in this project is used for educational purposes only. 
+Rights and ownership goes to their rightful owners. Certain modifications were made to the JS/CSS
+ Please refer to ../login/license */
 console.clear();
 
 const loginBtn = document.getElementById('login');
