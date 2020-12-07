@@ -436,6 +436,7 @@ console.log(shiny_pokemon_dict)
 
 		var assets = []
 		var encounter = []
+    var encounter_name_holder = ""
 
     start_button.onclick = function(event) {
       start_panel.classList.add('hidden')
@@ -463,6 +464,7 @@ console.log(shiny_pokemon_dict)
 			$("#encounter_text").css({opacity:100});
 
 			let encounter_name = assets[i][1]
+      encounter_name_holder = encounter_name
       encounter_name = encounter_name.charAt(0).toUpperCase() + encounter_name.slice(1)
 			if(assets == shinies){
 				encounter_text.innerHTML = "You have encountered a wild Shiny " + encounter_name + "!"
@@ -501,8 +503,24 @@ console.log(shiny_pokemon_dict)
     			$(this).remove();
 			});
 
+      $.ajax({
+        url: 'catch_pokemon.php',
+        type: 'POST',
+        data: {
+          pokemon: encounter_name_holder
+        },
+        success: function(data, status) {
+          console.log(data);
+        },
+  error: function(request, data, status){
+          console.log("failed")
+        }
+      })
 
+      console.log(encounter_name_holder)
 			encounter.pop()
+      encounter_name_holder = ""
+      console.log("popped")
 			catch_button.disabled = true;
 		});
 

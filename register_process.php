@@ -2,9 +2,15 @@
 $username = $_POST['user'];
 $password = $_POST['pass'];
 
-// open up the 'teacheraccounts.txt' file
 include('config.php');
-
+if(!$username || !$password){
+    header('Location: loginpage.php?registererror=missing_register');
+    exit();
+}
+if(strlen($username) < 5 || strlen($password) < 6){
+    header('Location: loginpage.php?registererror=minimum_error');
+    exit();
+}
 $data = file_get_contents($file_path . '/accounts.txt');
 $data = trim($data);
 $split_items = explode("\n", $data);
@@ -21,9 +27,10 @@ for($i = 0; $i < sizeof($split_items); $i++){
   $loginInfo[] = $tempArray;
 }
 
+
 for($k = 0; $k < sizeof($loginInfo) ; $k++){
   if ($username == $loginInfo[$k][0]) {
-    header('Location: register.php?loginerror=taken');
+    header('Location: loginpage.php?loginerror=taken');
     exit();
   }
 }
