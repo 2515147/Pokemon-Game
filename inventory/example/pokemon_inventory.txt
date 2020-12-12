@@ -1,1 +1,2 @@
-wartortle,primeape,dratini,rapidash,oddish,lickitung,vulpix,haunter,squirtle,tauros,
+wartortle,primeape,dratini,rapidash,oddish,lickitung,vulpix,haunter,squirtle,tauros,shellder,machamp,zubat,machop,mr.mime,diglett,machoke,magneton,flareon,fearow,hypno,omastar,nidoran,nidorina,krabby,venomoth,grimer,
+flareon,hitmonlee,machoke,magikarp,magikarp,kingler,tentacruel,caterpie,cubone,nidoran (female),meowth,scyther,nidoran (female),golduck,clefairy,

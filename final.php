@@ -24,18 +24,21 @@
       }
 
       #ballSelect{
-        border: 5px solid black;
-      	height: 15px;
-      	width: 225px;
-      	padding-top: 85px;
-      	padding-bottom: -25px
-      	text-align: center;
-      	margin: auto;
+          border: 1px solid black;
+          height: 120px;
+          width: 608px;
+          margin: auto;
       }
+
       #ballContainer{
-        height: 100%;
-        width: 25%;
-        border: 2px solid blue;
+        display:inline-block;
+        float: left;
+        border: 1px solid blue;
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 120px;
+        width:150px;
       }
 
     </style>
@@ -492,10 +495,10 @@ shiny_pokemon_dict = {
 
 //first value in list is weight, second number in list is ball quantity
  pokeballsDict = {
-   'pokeball' : [10,999],
-   'greatball' : [8,3],
-   'ultraball' : [6,0],
-   'masterball' : [1,10]
+   'pokeball' : 4,
+   'greatball' : 3,
+   'ultraball' : 2,
+   'masterball' : 1
  }
 
  let selected_pokeball = "pokeball"
@@ -505,10 +508,26 @@ shiny_pokemon_dict = {
    all_ball_divs[i].onclick = function(event){
      let holder = all_ball_divs[i].dataset.name
      console.log(holder)
-     console.log(pokeballsDict[holder])
-     console.log(pokeballsDict[holder][1])
-     if (pokeballsDict[holder][1] > 0) {
+     let ajaxHolder;
+     $.ajax({
+       url: 'pokeballs_process_two.php',
+       type: 'POST',
+       data: {
+         poke_check: holder
+       },
+       async:false,
+       success: function(data, status) {
+         ajaxHolder = data;
+       },
+ error: function(request, data, status){
+         console.log("failed")
+       }
+     })
+
+     console.log(ajaxHolder)
+     if (ajaxHolder > 0) {
        selected_pokeball = holder
+       console.log("chosen ball is: ", selected_pokeball)
        ballDiv.classList.add('hidden')
      }
      // else{
@@ -635,13 +654,46 @@ console.log(shiny_pokemon_dict)
 
 		catch_button.addEventListener("click", function(){
       let winningValue = 1
-      let ball_rng = pokeballsDict[selected_pokeball][0]
+      let ajaxHolder;
+      let ball_rng = pokeballsDict[selected_pokeball]
       let rng = (parseInt( Math.random() * ball_rng)) + 1
       console.log(rng)
-      pokeballsDict[selected_pokeball][1] -= 1;
-      if(pokeballsDict[selected_pokeball][1] == 0){
+
+      $.ajax({
+        url: 'pokeballs_process.php',
+        type: 'POST',
+        data: {
+          pokeball: selected_pokeball
+        },
+        async:false,
+        success: function(data, status) {
+          ajaxHolder = data;
+          console.log(data);
+        },
+  error: function(request, data, status){
+          console.log("failed")
+        }
+      })
+
+  //     $.ajax({
+  //       url: 'pokeballs_process.php',
+  //       type: 'GET',
+  //       success: function(data, status) {
+  //         ajaxHolder = data;
+  //       },
+  // error: function(request, data, status){
+  //         console.log("failed")
+  //       }
+  //     })
+  //
+      if(ajaxHolder == 0){
         selected_pokeball = "pokeball"
       }
+
+
+      // if(pokeballsDict[selected_pokeball] == 0){
+      //   selected_pokeball = "pokeball"
+      // }
       if (rng == winningValue){
         encounter_text.innerHTML = "Pokemon sucessfully caught!";
   			$("#encounter_text").animate({opacity:0},1001);
