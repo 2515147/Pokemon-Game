@@ -23,6 +23,21 @@
       	margin: auto;
       }
 
+      #ballSelect{
+        border: 5px solid black;
+      	height: 15px;
+      	width: 225px;
+      	padding-top: 85px;
+      	padding-bottom: -25px
+      	text-align: center;
+      	margin: auto;
+      }
+      #ballContainer{
+        height: 100%;
+        width: 25%;
+        border: 2px solid blue;
+      }
+
     </style>
   </head>
 
@@ -50,8 +65,18 @@
 		<div id="actions_container">
 		<button id="explore_btn">Explore</button>
 		<button id="catch_btn">Catch!</button>
+    <button id="ball_btn">Select Ball</button>
 		</div>
+
+    <div id="ballSelect" class = "hidden">
+      <div id ="ballContainer" data-name="pokeball" style="background-image: url('../game/pokeballs/pokeball.png');"> </div>
+      <div id ="ballContainer" data-name="greatball" style="background-image: url('../game/pokeballs/greatball.png');"> </div>
+      <div id ="ballContainer" data-name="ultraball" style="background-image: url('../game/pokeballs/ultraball.png');"> </div>
+      <div id ="ballContainer" data-name="masterball" style="background-image: url('../game/pokeballs/masterball.png');"> </div>
+    </div>
+
     	</div>
+
 
 	<!-- bring in jQuery Library -->
 
@@ -385,6 +410,113 @@ shiny_pokemon_dict = {
 'mew': 'https://projectpokemon.org/images/shiny-sprite/mew.gif'
 }
 
+// berryDict = {'Aguav Berry': 'https://www.serebii.net/itemdex/sprites/pgl/aguavberry.png',
+//  'Apicot Berry': 'https://www.serebii.net/itemdex/sprites/pgl/apicotberry.png',
+//  'Aspear Berry': 'https://www.serebii.net/itemdex/sprites/pgl/aspearberry.png',
+//  'Babiri Berry': 'https://www.serebii.net/itemdex/sprites/pgl/babiriberry.png',
+//  'Belue Berry': 'https://www.serebii.net/itemdex/sprites/pgl/belueberry.png',
+//  'Bluk Berry': 'https://www.serebii.net/itemdex/sprites/pgl/blukberry.png',
+//  'Charti Berry': 'https://www.serebii.net/itemdex/sprites/pgl/chartiberry.png',
+//  'Cheri Berry': 'https://www.serebii.net/itemdex/sprites/pgl/cheriberry.png',
+//  'Chesto Berry': 'https://www.serebii.net/itemdex/sprites/pgl/chestoberry.png',
+//  'Chilan Berry': 'https://www.serebii.net/itemdex/sprites/pgl/chilanberry.png',
+//  'Chople Berry': 'https://www.serebii.net/itemdex/sprites/pgl/chopleberry.png',
+//  'Coba Berry': 'https://www.serebii.net/itemdex/sprites/pgl/cobaberry.png',
+//  'Colbur Berry': 'https://www.serebii.net/itemdex/sprites/pgl/colburberry.png',
+//  'Cornn Berry': 'https://www.serebii.net/itemdex/sprites/pgl/cornnberry.png',
+//  'Custap Berry': 'https://www.serebii.net/itemdex/sprites/pgl/custapberry.png',
+//  'Durin Berry': 'https://www.serebii.net/itemdex/sprites/pgl/durinberry.png',
+//  'Enigma Berry': 'https://www.serebii.net/itemdex/sprites/pgl/enigmaberry.png',
+//  'Figy Berry': 'https://www.serebii.net/itemdex/sprites/pgl/figyberry.png',
+//  'Ganlon Berry': 'https://www.serebii.net/itemdex/sprites/pgl/ganlonberry.png',
+//  'Golden Nanab Berry': 'https://www.serebii.net/itemdex/sprites/pgl/goldennanabberry.png',
+//  'Golden Pinap Berry': 'https://www.serebii.net/itemdex/sprites/pgl/goldenpinapberry.png',
+//  'Golden Razz Berry': 'https://www.serebii.net/itemdex/sprites/pgl/goldenrazzberry.png',
+//  'Grepa Berry': 'https://www.serebii.net/itemdex/sprites/pgl/grepaberry.png',
+//  'Haban Berry': 'https://www.serebii.net/itemdex/sprites/pgl/habanberry.png',
+//  'Hondew Berry': 'https://www.serebii.net/itemdex/sprites/pgl/hondewberry.png',
+//  'Iapapa Berry': 'https://www.serebii.net/itemdex/sprites/pgl/iapapaberry.png',
+//  'Jaboca Berry': 'https://www.serebii.net/itemdex/sprites/pgl/jabocaberry.png',
+//  'Kasib Berry': 'https://www.serebii.net/itemdex/sprites/pgl/kasibberry.png',
+//  'Kebia Berry': 'https://www.serebii.net/itemdex/sprites/pgl/kebiaberry.png',
+//  'Kee Berry': 'https://www.serebii.net/itemdex/sprites/pgl/keeberry.png',
+//  'Kelpsy Berry': 'https://www.serebii.net/itemdex/sprites/pgl/kelpsyberry.png',
+//  'Lansat Berry': 'https://www.serebii.net/itemdex/sprites/pgl/lansatberry.png',
+//  'Leppa Berry': 'https://www.serebii.net/itemdex/sprites/pgl/leppaberry.png',
+//  'Liechi Berry': 'https://www.serebii.net/itemdex/sprites/pgl/liechiberry.png',
+//  'Lum Berry': 'https://www.serebii.net/itemdex/sprites/pgl/lumberry.png',
+//  'Mago Berry': 'https://www.serebii.net/itemdex/sprites/pgl/magoberry.png',
+//  'Magost Berry': 'https://www.serebii.net/itemdex/sprites/pgl/magostberry.png',
+//  'Maranga Berry': 'https://www.serebii.net/itemdex/sprites/pgl/marangaberry.png',
+//  'Micle Berry': 'https://www.serebii.net/itemdex/sprites/pgl/micleberry.png',
+//  'Nanab Berry': 'https://www.serebii.net/itemdex/sprites/pgl/nanabberry.png',
+//  'Nomel Berry': 'https://www.serebii.net/itemdex/sprites/pgl/nomelberry.png',
+//  'Occa Berry': 'https://www.serebii.net/itemdex/sprites/pgl/occaberry.png',
+//  'Oran Berry': 'https://www.serebii.net/itemdex/sprites/pgl/oranberry.png',
+//  'Pamtre Berry': 'https://www.serebii.net/itemdex/sprites/pgl/pamtreberry.png',
+//  'Passho Berry': 'https://www.serebii.net/itemdex/sprites/pgl/passhoberry.png',
+//  'Payapa Berry': 'https://www.serebii.net/itemdex/sprites/pgl/payapaberry.png',
+//  'Pecha Berry': 'https://www.serebii.net/itemdex/sprites/pgl/pechaberry.png',
+//  'Persim Berry': 'https://www.serebii.net/itemdex/sprites/pgl/persimberry.png',
+//  'Petaya Berry': 'https://www.serebii.net/itemdex/sprites/pgl/petayaberry.png',
+//  'Pinap Berry': 'https://www.serebii.net/itemdex/sprites/pgl/pinapberry.png',
+//  'Pomeg Berry': 'https://www.serebii.net/itemdex/sprites/pgl/pomegberry.png',
+//  'Qualot Berry': 'https://www.serebii.net/itemdex/sprites/pgl/qualotberry.png',
+//  'Rabuta Berry': 'https://www.serebii.net/itemdex/sprites/pgl/rabutaberry.png',
+//  'Rawst Berry': 'https://www.serebii.net/itemdex/sprites/pgl/rawstberry.png',
+//  'Razz Berry': 'https://www.serebii.net/itemdex/sprites/pgl/razzberry.png',
+//  'Rindo Berry': 'https://www.serebii.net/itemdex/sprites/pgl/rindoberry.png',
+//  'Roseli Berry': 'https://www.serebii.net/itemdex/sprites/pgl/roseliberry.png',
+//  'Rowap Berry': 'https://www.serebii.net/itemdex/sprites/pgl/rowapberry.png',
+//  'Salac Berry': 'https://www.serebii.net/itemdex/sprites/pgl/salacberry.png',
+//  'Shuca Berry': 'https://www.serebii.net/itemdex/sprites/pgl/shucaberry.png',
+//  'Silver Nanab Berry': 'https://www.serebii.net/itemdex/sprites/pgl/silvernanabberry.png',
+//  'Silver Pinap Berry': 'https://www.serebii.net/itemdex/sprites/pgl/silverpinapberry.png',
+//  'Silver Razz Berry': 'https://www.serebii.net/itemdex/sprites/pgl/silverrazzberry.png',
+//  'Sitrus Berry': 'https://www.serebii.net/itemdex/sprites/pgl/sitrusberry.png',
+//  'Spelon Berry': 'https://www.serebii.net/itemdex/sprites/pgl/spelonberry.png',
+//  'Starf Berry': 'https://www.serebii.net/itemdex/sprites/pgl/starfberry.png',
+//  'Tamato Berry': 'https://www.serebii.net/itemdex/sprites/pgl/tamatoberry.png',
+//  'Tanga Berry': 'https://www.serebii.net/itemdex/sprites/pgl/tangaberry.png',
+//  'Wacan Berry': 'https://www.serebii.net/itemdex/sprites/pgl/wacanberry.png',
+//  'Watmel Berry': 'https://www.serebii.net/itemdex/sprites/pgl/watmelberry.png',
+//  'Wepear Berry': 'https://www.serebii.net/itemdex/sprites/pgl/wepearberry.png',
+//  'Wiki Berry': 'https://www.serebii.net/itemdex/sprites/pgl/wikiberry.png',
+//  'Yache Berry': 'https://www.serebii.net/itemdex/sprites/pgl/yacheberry.png' }
+
+ // repelDict = {
+ //   'Repel' : 'https://www.serebii.net/itemdex/sprites/pgl/repel.png',
+ //   'Super Repel' : 'https://cdn.bulbagarden.net/upload/d/df/Dream_Super_Repel_Sprite.png',
+ //   'Max Repel' : 'https://www.serebii.net/itemdex/sprites/pgl/maxrepel.png'
+ // }
+
+//first value in list is weight, second number in list is ball quantity
+ pokeballsDict = {
+   'pokeball' : [10,999],
+   'greatball' : [8,3],
+   'ultraball' : [6,0],
+   'masterball' : [1,10]
+ }
+
+ let selected_pokeball = "pokeball"
+ let ballDiv = document.querySelector("#ballSelect")
+ let all_ball_divs = document.querySelectorAll("#ballContainer")
+ for (let i =0; i < all_ball_divs.length; i++){
+   all_ball_divs[i].onclick = function(event){
+     let holder = all_ball_divs[i].dataset.name
+     console.log(holder)
+     console.log(pokeballsDict[holder])
+     console.log(pokeballsDict[holder][1])
+     if (pokeballsDict[holder][1] > 0) {
+       selected_pokeball = holder
+       ballDiv.classList.add('hidden')
+     }
+     // else{
+     //   //maybe gray out the ball ?? something to show quantity is 0 visually
+     // }
+   }
+ }
+
 console.log(shiny_pokemon_dict)
 
     var commons = []
@@ -445,6 +577,19 @@ console.log(shiny_pokemon_dict)
 
 		catch_button.disabled = true;
 
+    let ballSelector = document.querySelector('#ball_btn');
+    console.log(ballSelector)
+
+    ballSelector.onclick = function(event){
+      ballDiv.classList.remove('hidden')
+      console.log("done")
+    }
+    // ballSelector.addEventListener("click", function(){
+    //   ballSelector.classList.remove('hidden')
+    //   console.log("done")
+    // })
+
+
 		explore_button.addEventListener("click", function(){
       var test_Val = weighted_value();
       console.log(test_Val)
@@ -489,9 +634,35 @@ console.log(shiny_pokemon_dict)
 
 
 		catch_button.addEventListener("click", function(){
-
-			encounter_text.innerHTML = "Pokemon sucessfully caught!";
-			$("#encounter_text").animate({opacity:0},1001);
+      let winningValue = 1
+      let ball_rng = pokeballsDict[selected_pokeball][0]
+      let rng = (parseInt( Math.random() * ball_rng)) + 1
+      console.log(rng)
+      pokeballsDict[selected_pokeball][1] -= 1;
+      if(pokeballsDict[selected_pokeball][1] == 0){
+        selected_pokeball = "pokeball"
+      }
+      if (rng == winningValue){
+        encounter_text.innerHTML = "Pokemon sucessfully caught!";
+  			$("#encounter_text").animate({opacity:0},1001);
+        $.ajax({
+          url: 'catch_pokemon.php',
+          type: 'POST',
+          data: {
+            pokemon: encounter_name_holder
+          },
+          success: function(data, status) {
+            console.log(data);
+          },
+    error: function(request, data, status){
+            console.log("failed")
+          }
+        })
+      }
+      else{
+        encounter_text.innerHTML = "Oh no! It ran away..";
+        $("#encounter_text").animate({opacity:0},1001);
+      }
 
 
 			setTimeout(function(){
@@ -503,19 +674,7 @@ console.log(shiny_pokemon_dict)
     			$(this).remove();
 			});
 
-      $.ajax({
-        url: 'catch_pokemon.php',
-        type: 'POST',
-        data: {
-          pokemon: encounter_name_holder
-        },
-        success: function(data, status) {
-          console.log(data);
-        },
-  error: function(request, data, status){
-          console.log("failed")
-        }
-      })
+
 
       console.log(encounter_name_holder)
 			encounter.pop()
