@@ -52,10 +52,7 @@
         width:150px;
       }
 
-      .quick{
-        background-repeat: no-repeat;
-        background-position: center;
-      }
+
 
     </style>
   </head>
@@ -177,96 +174,75 @@
 
   <!--/.Navbar-->
 
-    <div style="width:300px"class="card-body grey lighten-5 rounded-bottom">
+    <div style="display:inline-flex;">
 
       <!-- Grid row -->
       <div class="row">
 
-        <!-- Grid column -->
-        <div class="col-6 p-1">
-
-          <div class="card grey lighten-2">
+        <div class="col">
+          <div class="card orange lighten-3">
             <div class="card-body pb-0">
-              <i class="fas fa-cloud fa-3x pb-4"></i>
               <div class="d-flex justify-content-between">
                 <p class="mb-0 hour">x left</p>
               </div>
-            </div>
             <hr>
             <div class="card-body pt-0">
               <img src='https://cdn.bulbagarden.net/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png'></img>
             </div>
+            </div>
           </div>
-
         </div>
 
-        <!-- Grid column -->
-        <div class="col-6 p-1">
+        <div class="col">
 
           <div class="card orange lighten-3">
             <div class="card-body pb-0">
-              <i class="fas fa-sun fa-3x pb-4"></i>
               <div class="d-flex justify-content-between">
                 <p class="mb-0 hour">x left</p>
               </div>
-            </div>
             <hr>
             <div class="card-body pt-0">
               <img src='https://cdn.bulbagarden.net/upload/b/bf/Dream_Great_Ball_Sprite.png'></img>
             </div>
+            </div>
           </div>
-
         </div>
-        <!-- Grid column -->
 
-      </div>
-      <!-- Grid row -->
+        <div class="col">
 
-      <!-- Grid row -->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col-6 p-1">
-
-          <div class="card indigo lighten-3">
+          <div class="card orange lighten-3">
             <div class="card-body pb-0">
-              <i class="fas fa-tint fa-3x pb-4"></i>
               <div class="d-flex justify-content-between">
                 <p class="mb-0 hour">x left</p>
               </div>
-            </div>
             <hr>
             <div class="card-body pt-0">
               <img src='https://cdn.bulbagarden.net/upload/a/a8/Dream_Ultra_Ball_Sprite.png'></img>
             </div>
+            </div>
           </div>
-
         </div>
-        <!-- Grid column -->
 
-        <!-- Grid column -->
-        <div class="col-6 p-1">
 
-          <div class="card grey lighten-2">
+        <div class="col">
+
+          <div class="card orange lighten-3">
             <div class="card-body pb-0">
-              <i class="fas fa-cloud fa-3x pb-4"></i>
               <div class="d-flex justify-content-between">
                 <p class="mb-0 hour">x left</p>
               </div>
-            </div>
             <hr>
             <div class="card-body pt-0">
               <img src='https://cdn.bulbagarden.net/upload/9/95/Dream_Master_Ball_Sprite.png'></img>
             </div>
+            </div>
           </div>
-
         </div>
-        <!-- Grid column -->
 
       </div>
 
+      </div>
     </div>
-    	</div>
 
 
 	<!-- bring in jQuery Library -->
