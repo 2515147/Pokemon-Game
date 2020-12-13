@@ -1,12 +1,23 @@
 <!doctype html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pokemon</title>
     <style>
+
       .hidden {
         display: none;
       }
 
+      .card {
+
+        background-color:#373737 ;
+
+      }
       #encounter_text{
       	height: 30px;
       	text-align: center;
@@ -15,7 +26,7 @@
       }
 
       #sprite_container{
-      	height: 225px;
+      	height: 405px;
       	width: 225px;
       	padding-top: 50px;
       	padding-bottom: -45px
@@ -41,29 +52,89 @@
         width:150px;
       }
 
+      .quick{
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
     </style>
   </head>
 
   <body>
+
   <?php
     if ($_COOKIE['loggedin'] == 'yes'){
   ?>
-  <div id="start">
-		<b>Pok&eacutemon</b>
-        <p>Lorem Ipsum</p>
-        <button id="start_btn">Start Game!</button>
 
-    </div>
 
-    <div id="playing" class="hidden">
-		Game UI Here
-		<br>
 
+    <div id="playing">
+    <!--Navbar -->
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1">
+      <a class="navbar-brand" href="#">Pokemon</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+        aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="menu/menu.html">Menu <span class="sr-only"></span></a>
+        </li>
+      </ul>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          <li class="nav-item avatar dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="navbar-text">
+              Welcome, Bob
+              </span>
+              <img style="max-width:50px;" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg" class="rounded-circle z-depth-0"
+                alt="avatar image">
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+              aria-labelledby="navbarDropdownMenuLink-55">
+              <a class="dropdown-item" href="#">Change Profile Picture</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--/.Navbar -->
       	<div id="encounter_text">
+
       	</div>
         <!-- sprites will go here -->
 		<div id="sprite_container">
+      <!-- Card -->
+      <div style= "width:225px;height:287px;"class="card promoting-card">
+      <!-- Card content -->
+      <div class="card-body d-flex flex-row">
+      <!-- Content -->
+      <div id=card_content>
+      </div>
+      </div>
+
+      <!-- Card image -->
+      <div class="view overlay">
+        <img class="card-img-top rounded-0" id="card_container">
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <div class="collapse-content">
+          <!-- Text -->
+        </div>
+          <p> Rarity:&#11088&#11088&#11088</p>
+      </div>
+
+    <!-- Card -->
+
 		</div>
+  </div>
+
+
 
 		<div id="actions_container">
 		<button id="explore_btn">Explore</button>
@@ -72,12 +143,129 @@
 		</div>
 
     <div id="ballSelect" class = "hidden">
-      <div id ="ballContainer" data-name="pokeball" style="background-image: url('../game/pokeballs/pokeball.png');"> </div>
-      <div id ="ballContainer" data-name="greatball" style="background-image: url('../game/pokeballs/greatball.png');"> </div>
-      <div id ="ballContainer" data-name="ultraball" style="background-image: url('../game/pokeballs/ultraball.png');"> </div>
-      <div id ="ballContainer" data-name="masterball" style="background-image: url('../game/pokeballs/masterball.png');"> </div>
+      <div id ="ballContainer" data-name="pokeball" style="background-image: url('pokeballs/pokeball.png');"> </div>
+      <div id ="ballContainer" data-name="greatball" style="background-image: url('pokeballs/greatball.png');"> </div>
+      <div id ="ballContainer" data-name="ultraball" style="background-image: url('pokeballs/ultraball.png');"> </div>
+      <div id ="ballContainer" data-name="masterball" style="background-image: url('pokeballs/masterball.png');"> </div>
     </div>
+<div class="card panels-card">
 
+  <div class="rounded-top grey lighten-2 dark-grey-text">
+    <ul class="list-inline float-right my-0 py-1 pr-3">
+      <li class="list-inline-item">
+        <i class="fab fa-facebook" aria-hidden="true"></i>
+      </li>
+      <li class="list-inline-item">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
+      </li>
+      <li class="list-inline-item">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+      </li>
+    </ul>
+  </div>
+
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark grey lighten-5 d-flex justify-content-between z-depth-1-bottom">
+
+      <div>
+          <li class="list-inline-item font-weight-bold text-uppercase">
+            quick inventory
+          </li>
+      </div>
+
+  </nav>
+
+  <!--/.Navbar-->
+
+    <div style="width:300px"class="card-body grey lighten-5 rounded-bottom">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-6 p-1">
+
+          <div class="card grey lighten-2">
+            <div class="card-body pb-0">
+              <i class="fas fa-cloud fa-3x pb-4"></i>
+              <div class="d-flex justify-content-between">
+                <p class="mb-0 hour">x left</p>
+              </div>
+            </div>
+            <hr>
+            <div class="card-body pt-0">
+              <img src='https://cdn.bulbagarden.net/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png'></img>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-6 p-1">
+
+          <div class="card orange lighten-3">
+            <div class="card-body pb-0">
+              <i class="fas fa-sun fa-3x pb-4"></i>
+              <div class="d-flex justify-content-between">
+                <p class="mb-0 hour">x left</p>
+              </div>
+            </div>
+            <hr>
+            <div class="card-body pt-0">
+              <img src='https://cdn.bulbagarden.net/upload/b/bf/Dream_Great_Ball_Sprite.png'></img>
+            </div>
+          </div>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-6 p-1">
+
+          <div class="card indigo lighten-3">
+            <div class="card-body pb-0">
+              <i class="fas fa-tint fa-3x pb-4"></i>
+              <div class="d-flex justify-content-between">
+                <p class="mb-0 hour">x left</p>
+              </div>
+            </div>
+            <hr>
+            <div class="card-body pt-0">
+              <img src='https://cdn.bulbagarden.net/upload/a/a8/Dream_Ultra_Ball_Sprite.png'></img>
+            </div>
+          </div>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-6 p-1">
+
+          <div class="card grey lighten-2">
+            <div class="card-body pb-0">
+              <i class="fas fa-cloud fa-3x pb-4"></i>
+              <div class="d-flex justify-content-between">
+                <p class="mb-0 hour">x left</p>
+              </div>
+            </div>
+            <hr>
+            <div class="card-body pt-0">
+              <img src='https://cdn.bulbagarden.net/upload/9/95/Dream_Master_Ball_Sprite.png'></img>
+            </div>
+          </div>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+
+    </div>
     	</div>
 
 
@@ -91,18 +279,14 @@
 
     <script>
 		document.body.style.backgroundColor = '#373737'
-		document.getElementById("start").style.color = 'white'
-		document.getElementById("start").style.textAlign = 'center'
-		document.getElementById("start").style.margin = 'auto'
 
 		document.getElementById("playing").style.color = 'white'
    	  	document.getElementById("playing").style.textAlign = 'center'
    	  	document.getElementById("playing").style.margin = 'auto'
 
-		let start_button = document.getElementById('start_btn')
-		let start_panel = document.getElementById("start")
 		let playing_panel = document.getElementById("playing")
 		let sprite_container = document.getElementById("sprite_container")
+    let card_container = document.getElementById("card_container")
 		let encounter_text = document.getElementById("encounter_text")
 		let explore_button = document.getElementById('explore_btn')
 		let catch_button = document.getElementById('catch_btn')
@@ -589,10 +773,6 @@ console.log(shiny_pokemon_dict)
 		var encounter = []
     var encounter_name_holder = ""
 
-    start_button.onclick = function(event) {
-      start_panel.classList.add('hidden')
-      playing_panel.classList.remove('hidden')
-		}
 
 		catch_button.disabled = true;
 
@@ -639,13 +819,13 @@ console.log(shiny_pokemon_dict)
 
 
 			// add our encounter sprite
-            let curr_encounter = document.createElement('img')
-            curr_encounter.src = assets[i][0]
-            curr_encounter.style.margin = 'auto'
-            curr_encounter.style.width = '190px'
-            curr_encounter.style.height = '165px'
-            sprite_container.appendChild(curr_encounter)
-       		catch_button.disabled = false;
+      card_container.src = assets[i][0]
+      card_container.style.margin = 'auto'
+      card_container.style.width = '190px'
+      card_container.style.height = '165px'
+      $('#card_container').show()
+
+   		catch_button.disabled = false;
 			explore_button.disabled = true;
 
 
@@ -722,8 +902,8 @@ console.log(shiny_pokemon_dict)
 			}, 1000);
 
 
-			$("#sprite_container img").fadeOut(1000, function(){
-    			$(this).remove();
+			$("#card_container").fadeOut(1000, function(){
+        $(this).attr('src',"")
 			});
 
 
