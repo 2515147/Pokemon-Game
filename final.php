@@ -186,7 +186,7 @@
                 <p class="mb-0 hour">x left</p>
               </div>
             <hr>
-            <div class="card-body pt-0">
+            <div class="card-body pt-0" data-name="pokeball">
               <img src='https://cdn.bulbagarden.net/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png'></img>
             </div>
             </div>
@@ -201,7 +201,7 @@
                 <p class="mb-0 hour">x left</p>
               </div>
             <hr>
-            <div class="card-body pt-0">
+            <div class="card-body pt-0" data-name="greatball">
               <img src='https://cdn.bulbagarden.net/upload/b/bf/Dream_Great_Ball_Sprite.png'></img>
             </div>
             </div>
@@ -216,7 +216,7 @@
                 <p class="mb-0 hour">x left</p>
               </div>
             <hr>
-            <div class="card-body pt-0">
+            <div class="card-body pt-0" data-name="ultraball">
               <img src='https://cdn.bulbagarden.net/upload/a/a8/Dream_Ultra_Ball_Sprite.png'></img>
             </div>
             </div>
@@ -232,8 +232,25 @@
                 <p class="mb-0 hour">x left</p>
               </div>
             <hr>
-            <div class="card-body pt-0">
+            <div class="card-body pt-0" data-name="masterball">
               <img src='https://cdn.bulbagarden.net/upload/9/95/Dream_Master_Ball_Sprite.png'></img>
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col">
+
+          <div class="card orange lighten-3">
+            <div class="card-body pb-0">
+              <div class="d-flex justify-content-between">
+                <p class="mb-0 hour">100 ₽</p>
+              </div>
+            <hr>
+            <div class="card-body pt-0" data-name="pokecoins">
+              <img src='https://www.trukocash.com/img/games/10_resource_1_picture.png'></img>
             </div>
             </div>
           </div>
@@ -653,7 +670,7 @@ shiny_pokemon_dict = {
  //   'Max Repel' : 'https://www.serebii.net/itemdex/sprites/pgl/maxrepel.png'
  // }
 
-//first value in list is weight, second number in list is ball quantity
+//weight for ball catchrate
  pokeballsDict = {
    'pokeball' : 4,
    'greatball' : 3,
@@ -663,8 +680,9 @@ shiny_pokemon_dict = {
 
  let selected_pokeball = "pokeball"
  let ballDiv = document.querySelector("#ballSelect")
- let all_ball_divs = document.querySelectorAll("#ballContainer")
- for (let i =0; i < all_ball_divs.length; i++){
+
+ let all_ball_divs = document.querySelectorAll(".card-body.pt-0")
+ for (let i =0; i < all_ball_divs.length-1; i++){
    all_ball_divs[i].onclick = function(event){
      let holder = all_ball_divs[i].dataset.name
      console.log(holder)
@@ -695,6 +713,83 @@ shiny_pokemon_dict = {
      // }
    }
  }
+
+ var cookie_username;
+
+ function getCookie() {
+    // Split cookie string and get all individual name=value pairs in an array
+    var cookieArr = document.cookie.split(";");
+    // Loop through the array elements
+    for(var i = 0; i < cookieArr.length; i++) {
+        var cookiePair = cookieArr[i].split("=");
+        if( cookiePair.includes(" username") ) {
+          cookie_username = cookiePair[1]
+        }
+      }
+  }
+getCookie()
+
+let all_ball_text = document.querySelectorAll(".mb-0.hour")
+getCurr();
+function getCurr() {
+  $.ajax({
+    // url:'data/chatroom.txt?nocache='+Math.random(),
+    url: 'inventory/' + cookie_username + '/pokeballs.txt?nocache='+Math.random(),
+    type: 'GET',
+    data: {},
+    success: function(data, status) {
+      // console.log("yooooooooooo look here")
+      // console.log(chat_history.value)
+      console.log(data)
+      let split_items = data.split(",")
+      all_ball_text[0].innerHTML = split_items[0] + "x left"
+      all_ball_text[1].innerHTML = split_items[1] + "x left"
+      all_ball_text[2].innerHTML = split_items[2] + "x left"
+      all_ball_text[3].innerHTML = split_items[3] + "x left"
+      all_ball_text[4].innerHTML = split_items[4] + " ₽ "
+      setTimeout( getCurr, 1000 );
+    }
+  })
+}
+
+
+
+
+
+//===========================
+ // let all_ball_divs = document.querySelectorAll("#ballContainer")
+ // for (let i =0; i < all_ball_divs.length; i++){
+ //   all_ball_divs[i].onclick = function(event){
+ //     let holder = all_ball_divs[i].dataset.name
+ //     console.log(holder)
+ //     let ajaxHolder;
+ //     $.ajax({
+ //       url: 'pokeballs_process_two.php',
+ //       type: 'POST',
+ //       data: {
+ //         poke_check: holder
+ //       },
+ //       async:false,
+ //       success: function(data, status) {
+ //         ajaxHolder = data;
+ //       },
+ // error: function(request, data, status){
+ //         console.log("failed")
+ //       }
+ //     })
+ //
+ //     console.log(ajaxHolder)
+ //     if (ajaxHolder > 0) {
+ //       selected_pokeball = holder
+ //       console.log("chosen ball is: ", selected_pokeball)
+ //       ballDiv.classList.add('hidden')
+ //     }
+ //     // else{
+ //     //   //maybe gray out the ball ?? something to show quantity is 0 visually
+ //     // }
+ //   }
+ // }
+ //=====================================
 
 console.log(shiny_pokemon_dict)
 
@@ -812,6 +907,8 @@ console.log(shiny_pokemon_dict)
       let winningValue = 1
       let ajaxHolder;
       let ball_rng = pokeballsDict[selected_pokeball]
+      let currency_gain = (parseInt( Math.random() * 200)) + 1
+      console.log(currency_gain)
       let rng = (parseInt( Math.random() * ball_rng)) + 1
       console.log(rng)
 
@@ -819,7 +916,8 @@ console.log(shiny_pokemon_dict)
         url: 'pokeballs_process.php',
         type: 'POST',
         data: {
-          pokeball: selected_pokeball
+          pokeball: selected_pokeball,
+          coins: currency_gain
         },
         async:false,
         success: function(data, status) {

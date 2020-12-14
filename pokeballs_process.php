@@ -1,11 +1,13 @@
 <?php
 
 $pokeball_chosen = $_POST['pokeball'];
+$more_coins = $_POST['coins'];
 
 $data = file_get_contents($file_path . 'inventory/' . $_COOKIE['username'] . '/pokeballs.txt');
 $data = trim($data);
 $split_items = explode(",", $data);
 
+$split_items[4] = $split_items[4] + $more_coins;
 if($pokeball_chosen == 'pokeball'){
   $split_items[0] = $split_items[0] - 1;
   $new_value = implode(",", $split_items);
