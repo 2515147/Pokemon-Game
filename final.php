@@ -587,9 +587,9 @@ console.log(shiny_pokemon_dict)
 
         // some DOM refs
         let form = document.getElementById('uploadform')
-        let btn = document.getElementById('submit')
+        let upload = document.getElementById('submit')
 
-        btn.onclick = function(event) {
+        upload.onclick = function(event) {
           event.preventDefault();
 
           // we have to package up our file uplaod into a FormData object -- this
@@ -604,7 +604,7 @@ console.log(shiny_pokemon_dict)
 
           // now send our AJAX request to the server
           $.ajax({
-            url: 'upload_ajax.php',
+            url: 'upload_process.php',
             type: 'POST',
             data: fd,
             processData: false,
