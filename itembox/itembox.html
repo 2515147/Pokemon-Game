@@ -9,10 +9,28 @@
     <title>Shop</title>
     <style>
 
+
       body{
         background-color: #373737;
         color:white;
-        background: url("pc_bg/oshawattpc.png");
+        background: url("itembox_bg/itembox.png");
+        background-size: cover;
+        background-repeat:repeat;
+
+      }
+      .item{
+        height:150px;
+        width:150px;
+        background: #2a3439;
+        border-radius: 20px;
+        margin:35px;
+        margin-top:50px;
+        font-size: 25px;
+        text-align: center;
+        margin-right: 10px;
+        border-radius:50%;
+        display:inline-block;
+        padding:10px;
 
       }
 
@@ -20,10 +38,72 @@
         display:inline-flex;
         margin:auto;
         width:100%;
-        background-color: #373737;
         justify-content: flex-start;
         margin-top:-15px;
       }
+      .quantity{
+        border:1px solid black;
+        display:block;
+        background-color: rgba(0, 0, 0, .37);
+        margin:0 auto;
+        height:28px;
+        width:55px;
+        font-size: 16pt;
+        margin-left:100px;
+        margin-top:100px;
+      }
+
+      .one{
+        background: url("https://cdn.bulbagarden.net/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a3439;
+      }
+      .two{
+        background: url("https://cdn.bulbagarden.net/upload/b/bf/Dream_Great_Ball_Sprite.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a3439;
+      }
+      .three{
+        background: url("https://cdn.bulbagarden.net/upload/a/a8/Dream_Ultra_Ball_Sprite.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a3439;
+      }
+
+      .four{
+        background: url("https://cdn.bulbagarden.net/upload/9/95/Dream_Master_Ball_Sprite.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a3439;
+
+      }
+
+      .five{
+        background: url("https://img.rankedboost.com/wp-content/uploads/2016/08/Pokemon-Go-Razz-Berry-150x150.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a3439;
+        background-size: cover;
+      }
+
+      .six{
+        background: url("https://pokemongohub.net/wp-content/uploads/2017/06/item_0706.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a3439;
+        background-size: cover;
+      }
+
+      .seven{
+        background: url("https://img.rankedboost.com/wp-content/uploads/2016/08/Pinap-Berry-Pokemon-GO.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a3439;
+        background-size: cover;
+      }
+
     </style>
   </head>
     <body>
@@ -42,17 +122,31 @@
           <a class="nav-link" href="../menu/menu.html">Menu <span class="sr-only"></span></a>
         </li>
       </ul>
-        <ul class="navbar-nav ml-auto nav-flex-icons">
-          <li class="nav-item avatar dropdown">
-            </a>
-            </div>
-          </li>
-        </ul>
       </div>
     </nav>
     <!--/.Navbar -->
     <div id= "container">
-  
+      <div class="item one">
+        <div class="quantity">20x</div>
+      </div>
+      <div class="item two">
+        <div class="quantity">20x</div>
+      </div>
+      <div class="item three">
+        <div class="quantity">20x</div>
+      </div>
+      <div class="item four">
+        <div class="quantity">20x</div>
+      </div>
+      <div class="item five">
+        <div class="quantity">20x</div>
+      </div>
+      <div class="item six">
+        <div class="quantity">20x</div>
+      </div>
+      <div class="item seven">
+        <div class="quantity">20x</div>
+      </div>
   </div>
     </body>
 </html>
