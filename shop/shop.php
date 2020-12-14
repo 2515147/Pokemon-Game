@@ -21,6 +21,24 @@
         justify-content: flex-start;
         margin-top:-15px;
       }
+        button {
+        color: #494949 !important;
+        text-transform: uppercase;
+        border-radius: 25px;
+        text-decoration: none;
+        padding: 10px;
+        border: 4px solid #494949;
+        display: inline-block;
+        transition: all 0.4s ease 0s;
+        }
+
+        button:hover {
+        color: #ffffff !important;
+        border-radius: 25px;
+        background: #60a3bc !important;
+        border-color: #60a3bc !important;
+        transition: all 0.4s ease 0s;
+        }
     </style>
   </head>
     <body>
