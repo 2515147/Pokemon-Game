@@ -34,24 +34,6 @@
       	margin: auto;
       }
 
-      #ballSelect{
-          border: 1px solid black;
-          height: 120px;
-          width: 608px;
-          margin: auto;
-      }
-
-      #ballContainer{
-        display:inline-block;
-        float: left;
-        border: 1px solid blue;
-        background-size: 70%;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 120px;
-        width:150px;
-      }
-
       button {
       color: #494949;
       text-transform: uppercase;
@@ -70,6 +52,10 @@
       background: #60a3bc;
       border-color: #60a3bc;
       transition: all 0.4s ease 0s;
+      }
+
+      .chosenStyle{
+        border: 2px solid red;
       }
 
 
@@ -155,15 +141,8 @@
 		<div id="actions_container">
 		<button id="explore_btn">Explore</button>
 		<button id="catch_btn">Throw Pokeball!</button>
-    <button id="ball_btn">Select Ball</button>
 		</div>
 
-    <div id="ballSelect" class = "hidden">
-      <div id ="ballContainer" data-name="pokeball" style="background-image: url('pokeballs/pokeball.png');"> </div>
-      <div id ="ballContainer" data-name="greatball" style="background-image: url('pokeballs/greatball.png');"> </div>
-      <div id ="ballContainer" data-name="ultraball" style="background-image: url('pokeballs/ultraball.png');"> </div>
-      <div id ="ballContainer" data-name="masterball" style="background-image: url('pokeballs/masterball.png');"> </div>
-    </div>
 <div class="card panels-card">
 
   <!--Navbar-->
@@ -289,7 +268,7 @@
 		let explore_button = document.getElementById('explore_btn')
 		let catch_button = document.getElementById('catch_btn')
 
-    
+
 
 // berryDict = {'Aguav Berry': 'https://www.serebii.net/itemdex/sprites/pgl/aguavberry.png',
 //  'Apicot Berry': 'https://www.serebii.net/itemdex/sprites/pgl/apicotberry.png',
@@ -380,7 +359,6 @@
  }
 
  let selected_pokeball = "pokeball"
- let ballDiv = document.querySelector("#ballSelect")
 
  let all_ball_divs = document.querySelectorAll(".card-body.pt-0")
  for (let i =0; i < all_ball_divs.length-1; i++){
@@ -407,11 +385,15 @@
      if (ajaxHolder > 0) {
        selected_pokeball = holder
        console.log("chosen ball is: ", selected_pokeball)
-       ballDiv.classList.add('hidden')
+       for(let j = 0; j < all_ball_divs.length-1; j++){
+         all_ball_divs[j].classList.remove('chosenStyle')
+       }
+       all_ball_divs[i].classList.add('chosenStyle')
      }
-     // else{
-     //   //maybe gray out the ball ?? something to show quantity is 0 visually
-     // }
+     else{
+       //maybe gray out the ball ?? something to show quantity is 0 visually
+       alert("You do not own any " + all_ball_divs[i].dataset.name+"s")
+     }
    }
  }
 
@@ -453,44 +435,6 @@ function getCurr() {
   })
 }
 
-
-
-
-
-//===========================
- // let all_ball_divs = document.querySelectorAll("#ballContainer")
- // for (let i =0; i < all_ball_divs.length; i++){
- //   all_ball_divs[i].onclick = function(event){
- //     let holder = all_ball_divs[i].dataset.name
- //     console.log(holder)
- //     let ajaxHolder;
- //     $.ajax({
- //       url: 'pokeballs_process_two.php',
- //       type: 'POST',
- //       data: {
- //         poke_check: holder
- //       },
- //       async:false,
- //       success: function(data, status) {
- //         ajaxHolder = data;
- //       },
- // error: function(request, data, status){
- //         console.log("failed")
- //       }
- //     })
- //
- //     console.log(ajaxHolder)
- //     if (ajaxHolder > 0) {
- //       selected_pokeball = holder
- //       console.log("chosen ball is: ", selected_pokeball)
- //       ballDiv.classList.add('hidden')
- //     }
- //     // else{
- //     //   //maybe gray out the ball ?? something to show quantity is 0 visually
- //     // }
- //   }
- // }
- //=====================================
 
 console.log(shiny_pokemon_dict)
 
@@ -547,18 +491,6 @@ console.log(shiny_pokemon_dict)
 
 
 		catch_button.disabled = true;
-
-    let ballSelector = document.querySelector('#ball_btn');
-    console.log(ballSelector)
-
-    ballSelector.onclick = function(event){
-      ballDiv.classList.remove('hidden')
-      console.log("done")
-    }
-    // ballSelector.addEventListener("click", function(){
-    //   ballSelector.classList.remove('hidden')
-    //   console.log("done")
-    // })
 
 
 		explore_button.addEventListener("click", function(){
