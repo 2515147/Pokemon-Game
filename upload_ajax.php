@@ -1,5 +1,5 @@
 <?php
-  include ('uploadconfig.php');
+  include ('config.php');
 
   $f = $_FILES['filename'];
 
@@ -25,7 +25,7 @@
       $t = time();
       $u = uniqid();
       $filename = $t . '_' . $u . '.' . $filetype;
-      move_uploaded_file($f['tmp_name'], $path.'/'.$filename);
+      move_uploaded_file($f['tmp_name'], $file_path .'/inventory/'. $_COOKIE['username'] . '/' . $filename);
 
       print "success";
       exit();
