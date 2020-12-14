@@ -96,8 +96,15 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
               aria-labelledby="navbarDropdownMenuLink-55">
-              <a class="dropdown-item" href="#">Change Profile Picture</a>
-            </div>
+              <form enctype="multipart/form-data" name="uploadform" id="uploadform">
+                <!-- add in a 'file' input field - make sure to give it a 'name' parameter -->
+                <button id="submit" class="dropdown-item">Change Profile Picture</button>
+                <input type="file" id="filename" name="filename" value="Change Profile Picture">
+              </form>
+              <div id="results">
+
+              </div>
+          </div>
           </li>
         </ul>
       </div>
@@ -575,6 +582,48 @@ console.log(shiny_pokemon_dict)
         		array[j] = temp;
     	}
     }
+
+      $(document).ready(function() {
+
+        // some DOM refs
+        let form = document.getElementById('uploadform')
+        let btn = document.getElementById('submit')
+
+        btn.onclick = function(event) {
+          event.preventDefault();
+
+          // we have to package up our file uplaod into a FormData object -- this
+          // is required due to the fact that we aren't sending standard ASCII
+          // strings to the server with this request
+          var fd = new FormData();
+          var files = $('#filename')[0].files[0];
+          fd.append('filename',files);
+
+          // get a ref to our results div
+          let r = document.getElementById('results')
+
+          // now send our AJAX request to the server
+          $.ajax({
+            url: 'upload_ajax.php',
+            type: 'POST',
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function(data, status) {
+              if (data == 'filetype') {
+                r.innerHTML = 'Incorrect file type'
+              }
+              else if (data == 'nofile') {
+                r.innerHTML = 'Please select a file'
+              }
+              else if (data == 'success') {
+                r.innerHTML = 'Successful upload'
+              }
+            }
+          })
+        }
+      })
+      
     </script>
     <?php
       }
