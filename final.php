@@ -101,7 +101,7 @@
                 <input type="file" id="filename" name="filename" value="Change Profile Picture">
               </form>
               <div id="results">
-
+              <a class="navbar-nav mr-auto" href="logout.php">Logout</a>
               </div>
           </div>
           </li>
