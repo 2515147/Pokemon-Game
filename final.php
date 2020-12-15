@@ -457,17 +457,19 @@ console.log(shiny_pokemon_dict)
 
       titleDiv.innerHTML = encounter_name
       rarityDiv.innerHTML = "Rarity: "
-      for(let x=0; x < assets[i][0][1]; x++){
-        rarityDiv.innerHTML += "⭐"
-      }
-      console.log("assets: ", assets[i][1])
-
+      // console.log("assets: ", assets[i][0][1])
 
 			// add our encounter sprite
       if(selected == "shiny"){
+        for(let x=0; x < assets[i][0][1]; x++){
+          rarityDiv.innerHTML += "⭐"
+        }
         card_container.src = assets[i][0][0]
       }
       else{
+        for(let x=0; x < assets[i][2]; x++){
+          rarityDiv.innerHTML += "⭐"
+        }
         card_container.src = assets[i][0]
       }
 
