@@ -81,17 +81,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="menu/menu.html">Menu <span class="sr-only"></span></a>
+          <a style= "font-size:15pt;"class="nav-link" href="menu/menu.html">Menu Options<span class="sr-only"></span></a>
         </li>
       </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
           <li class="nav-item avatar dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <span class="navbar-text">
-              Welcome, Bob
+              <span style="font-size:15pt"id ="welcome_msg" class="navbar-text">
               </span>
-              <img style="max-width:50px;" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg" class="rounded-circle z-depth-0"
+              <img style="max-width:50px;" id="profile_pic" src="https://wallpaperaccess.com/full/24936.jpg" class="rounded-circle z-depth-0"
                 alt="avatar image">
             </a>
             <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
@@ -136,7 +135,7 @@
           <!-- Text -->
         </div>
           <p style="text-align: center" id="pokeTitle"><b></b></p>
-          <p id="rarity"> Rarity:&#11088&#11088&#11088</p>
+          <p id="rarity"></p>
       </div>
 
     <!-- Card -->
@@ -158,7 +157,7 @@
 
       <div>
           <li class="list-inline-item font-weight-bold text-uppercase">
-            quick inventory
+            quick inventory (Select Ball)
           </li>
       </div>
 
@@ -323,43 +322,44 @@
    }
  }
 
- var cookie_username;
+  var cookie_username;
 
- function getCookie() {
-    // Split cookie string and get all individual name=value pairs in an array
-    var cookieArr = document.cookie.split(";");
-    // Loop through the array elements
-    for(var i = 0; i < cookieArr.length; i++) {
-        var cookiePair = cookieArr[i].split("=");
-        if( cookiePair.includes(" username") ) {
-          cookie_username = cookiePair[1]
+   function getCookie() {
+      // Split cookie string and get all individual name=value pairs in an array
+      var cookieArr = document.cookie.split(";");
+      // Loop through the array elements
+      for(var i = 0; i < cookieArr.length; i++) {
+          var cookiePair = cookieArr[i].split("=");
+          if( cookiePair.includes(" username") ) {
+            cookie_username = cookiePair[1]
+          }
         }
-      }
-  }
-getCookie()
-
-let all_ball_text = document.querySelectorAll(".mb-0.hour")
-getCurr();
-function getCurr() {
-  $.ajax({
-    // url:'data/chatroom.txt?nocache='+Math.random(),
-    url: 'inventory/' + cookie_username + '/pokeballs.txt?nocache='+Math.random(),
-    type: 'GET',
-    data: {},
-    success: function(data, status) {
-      // console.log("yooooooooooo look here")
-      // console.log(chat_history.value)
-      console.log(data)
-      let split_items = data.split(",")
-      all_ball_text[0].innerHTML = split_items[0] + "x left"
-      all_ball_text[1].innerHTML = split_items[1] + "x left"
-      all_ball_text[2].innerHTML = split_items[2] + "x left"
-      all_ball_text[3].innerHTML = split_items[3] + "x left"
-      all_ball_text[4].innerHTML = split_items[4] + " ₽ "
-      setTimeout( getCurr, 1000 );
     }
-  })
-}
+  getCookie()
+  $("#welcome_msg").html('Welcome '+ cookie_username + '!');
+
+  let all_ball_text = document.querySelectorAll(".mb-0.hour")
+  getCurr();
+  function getCurr() {
+    $.ajax({
+      // url:'data/chatroom.txt?nocache='+Math.random(),
+      url: 'inventory/' + cookie_username + '/pokeballs.txt?nocache='+Math.random(),
+      type: 'GET',
+      data: {},
+      success: function(data, status) {
+        // console.log("yooooooooooo look here")
+        // console.log(chat_history.value)
+        console.log(data)
+        let split_items = data.split(",")
+        all_ball_text[0].innerHTML = split_items[0] + "x left"
+        all_ball_text[1].innerHTML = split_items[1] + "x left"
+        all_ball_text[2].innerHTML = split_items[2] + "x left"
+        all_ball_text[3].innerHTML = split_items[3] + "x left"
+        all_ball_text[4].innerHTML = split_items[4] + " ₽ "
+        setTimeout( getCurr, 1000 );
+      }
+    })
+  }
 
 
 console.log(shiny_pokemon_dict)
@@ -412,7 +412,6 @@ console.log(shiny_pokemon_dict)
     }
 
 		var assets = []
-    var selected;
 		var encounter = []
     var encounter_name_holder = ""
 
@@ -425,15 +424,12 @@ console.log(shiny_pokemon_dict)
       console.log(test_Val)
       if(test_Val == 'Common'){
         assets = commons;
-        selected ="common"
       }
       else if (test_Val == 'Legendary'){
         assets = legendaries;
-        selected ="common"
       }
       else{
         assets = shinies;
-        selected = "shiny"
       }
 			let i = parseInt( Math.random() * assets.length )
 			encounter.push(assets[i][0])
@@ -457,23 +453,14 @@ console.log(shiny_pokemon_dict)
 
       titleDiv.innerHTML = encounter_name
       rarityDiv.innerHTML = "Rarity: "
-      // console.log("assets: ", assets[i][0][1])
+      for(let x=0; x < assets[i][2]; x++){
+        rarityDiv.innerHTML += "⭐"
+      }
+      console.log("assets: ", assets[i][2])
+
 
 			// add our encounter sprite
-      if(selected == "shiny"){
-        for(let x=0; x < assets[i][0][1]; x++){
-          rarityDiv.innerHTML += "⭐"
-        }
-        card_container.src = assets[i][0][0]
-      }
-      else{
-        for(let x=0; x < assets[i][2]; x++){
-          rarityDiv.innerHTML += "⭐"
-        }
-        card_container.src = assets[i][0]
-      }
-
-      // console.log("yo iowaj here: ", assets[i][0][0])
+      card_container.src = assets[i][0]
       card_container.style.margin = 'auto'
       card_container.style.width = '190px'
       card_container.style.height = '165px'
@@ -531,10 +518,6 @@ console.log(shiny_pokemon_dict)
         selected_pokeball = "pokeball"
       }
 
-      if(selected == "shiny"){
-        encounter_name_holder = encounter_name_holder + "*"
-      }
-      // console.log("hiiiiiiiiiiiiiiii")
 
       // if(pokeballsDict[selected_pokeball] == 0){
       //   selected_pokeball = "pokeball"
@@ -590,6 +573,7 @@ console.log(shiny_pokemon_dict)
 
 
 
+
 		// shuffle function if necessary
 		function shuffle(array) {
     		for (var i = array.length - 1; i > 0; i--) {
@@ -618,6 +602,7 @@ console.log(shiny_pokemon_dict)
 
           // get a ref to our results div
           let r = document.getElementById('results')
+          let profile_pic = document.getElementById('profile_pic')
 
           // now send our AJAX request to the server
           $.ajax({
@@ -628,18 +613,36 @@ console.log(shiny_pokemon_dict)
             contentType: false,
             success: function(data, status) {
               if (data == 'filetype') {
-                r.innerHTML = 'Incorrect file type'
+                r.innerHTML = 'Incorrect file type';
               }
               else if (data == 'nofile') {
-                r.innerHTML = 'Please select a file'
+                r.innerHTML = 'Please select a file';
               }
               else if (data == 'success') {
                 r.innerHTML = 'Successful upload'
+                update_picture();
               }
             }
           })
+          }
+
+        
+        var folder = "inventory/" + cookie_username + '/';
+        update_picture();
+        function update_picture() {
+          $.ajax({
+              url : folder,
+              success: function (data) {
+                  $(data).find("a").attr("href", function (i, val) {
+                      if( val.match(/\.(png|jpg)$/) ) { 
+                          $("#profile_pic").attr( "src", folder + val);
+                      } 
+                  });
+              }
+          });
         }
       })
+
 
     </script>
     <?php
