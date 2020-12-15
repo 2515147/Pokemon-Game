@@ -80,7 +80,11 @@
       <img style="width: 190px;" class="card-img-top" src="https://cdn.bulbagarden.net/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Pokeballs</h5>
-        <p class="card-text">100 Pokecoins</p>
+        <div style="display: inline-flex;">
+        	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
+        	<p class="card-text">  100 Pokecoins</p>
+    	</div>
+        <p style="margin-bottom:40px">A device for catching wild Pokémon. It's thrown like a ball, comfortably encapsulating its target.</p>
         <button class="btn btn-primary" data-amount="1" data-name="pokeball" data-index= "0" data-price="100">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="pokeball" data-index= "0" data-price="1000">Buy 10</button>
       </div>
@@ -92,7 +96,11 @@
       <img style="width: 190px;" class="card-img-top" src=https://cdn.bulbagarden.net/upload/b/bf/Dream_Great_Ball_Sprite.png alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Greatballs</h5>
+        <div style="display: inline-flex;">
+        <img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
         <p class="card-text">200 Pokecoins</p>
+    	</div>
+        <p style="margin-bottom:88px">A high-performance Ball with a higher catch rate than a standard Poké Ball.</p>
         <button class="btn btn-primary" data-amount="1" data-name="greatball" data-index= "1" data-price="200">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="greatball" data-index= "1" data-price="2000">Buy 10</button>
       </div>
@@ -104,7 +112,11 @@
       <img style="width: 190px;" class="card-img-top" src="https://cdn.bulbagarden.net/upload/a/a8/Dream_Ultra_Ball_Sprite.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Ultraballs</h5>
-        <p class="card-text">500 Pokecoins</p>
+        <div style="display: inline-flex;">
+        	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
+        	<p class="card-text">500 Pokecoins</p>
+    	</div>
+        <p style="margin-bottom:63px">An ultra-performance Ball with a higher catch rate than a Great Ball.</p>
         <button class="btn btn-primary" data-amount="1" data-name="ultraball" data-index= "2" data-price="500">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="ultraball" data-index= "2" data-price="5000">Buy 10</button>
       </div>
@@ -116,7 +128,11 @@
       <img style="width: 190px;" class="card-img-top" src="https://cdn.bulbagarden.net/upload/9/95/Dream_Master_Ball_Sprite.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Masterballs</h5>
-        <p class="card-text">5000 Pokecoins</p>
+        <div style="display: inline-flex;">
+        	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
+        	<p class="card-text">5000 Pokecoins</p>
+    	</div>
+        <p>The best Poké Ball with the ultimate level of performance. With it, you will catch any wild Pokémon without fail.</p>
         <button class="btn btn-primary" data-amount="1" data-name="masterball" data-index= "3" data-price="5000">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="masterball" data-index= "3" data-price="50000">Buy 10</button>
       </div>
@@ -128,7 +144,11 @@
       <img style="width: 190px;" class="card-img-top" src="https://img.rankedboost.com/wp-content/uploads/2016/08/Pokemon-Go-Razz-Berry-150x150.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Razz Berries</h5>
-        <p class="card-text">2500 Pokecoins</p>
+        <div style="display: inline-flex;">
+        	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
+        	<p class="card-text">2500 Pokecoins</p>
+    	</div>
+        <p style="margin-bottom:110px">A berry that increase the capture chance of a wild Pokémon.</p>
         <button class="btn btn-primary" data-amount="1" data-name="razzberries" data-index= "0" data-price="2500">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="razzberries" data-index= "0" data-price="25000">Buy 10</button>
       </div>
@@ -140,7 +160,11 @@
       <img style="width: 190px;" class="card-img-top" src="https://pokemongohub.net/wp-content/uploads/2017/06/item_0706.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Grazz Berries</h5>
-        <p class="card-text">10000 Pokecoins</p>
+        <div style="display: inline-flex;">
+        	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
+        	<p class="card-text">10000 Pokecoins</p>
+    	</div>
+        <p style="margin-bottom:85px">An extremely rare berry that increases the encounter rate of legendaries.</p>
         <button class="btn btn-primary" data-amount="1" data-name="grazzberries" data-index= "1" data-price="10000">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="grazzberries" data-index= "1" data-price="100000">Buy 10</button>
       </div>
@@ -153,7 +177,11 @@
       <img style="width: 190px;" class="card-img-top" src="https://img.rankedboost.com/wp-content/uploads/2016/08/Pinap-Berry-Pokemon-GO.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Pinap Berries</h5>
-        <p class="card-text">2500 Pokecoins</p>
+        <div style="display: inline-flex;">
+        	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
+        	<p class="card-text">2500 Pokecoins</p>
+    	</div>
+        <p style="margin-bottom:108px">A tropical berry that increases the coin drop rate.</p>
         <button class="btn btn-primary" data-amount="1" data-name="pinapberries" data-index= "2" data-price="2500">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="pinapberries" data-index= "2" data-price="25000">Buy 10</button>
       </div>
