@@ -56,33 +56,103 @@
     </nav>
     <!--/.Navbar -->
     <div id= "container">
-  
+
   </div>
     <!-- custom application code -->
     <script>
 
-      $(document).ready(function() {
-        $.ajax({
-          url: 'https://pokeapi.co/api/v2/pokemon/eevee',
-          success: function(data, status) {
-            console.log(data);
-            if (data.sprites) {
-                if (data.sprites.front_default && typeof(data.sprites.front_default)=="string") {
-                  var curr =  document.createElement('img');
-                  curr.src = data.sprites.front_default
-                  document.querySelector('body').appendChild(curr);
-                }
-              
+    $(document).ready(function() {
+      var cookie_username;
+      var pokemon_holder;
+      var current_pokemon;
+
+      function getCookie() {
+         // Split cookie string and get all individual name=value pairs in an array
+         var cookieArr = document.cookie.split(";");
+         // Loop through the array elements
+         for(var i = 0; i < cookieArr.length; i++) {
+             var cookiePair = cookieArr[i].split("=");
+             if( cookiePair.includes(" username") ) {
+               cookie_username = cookiePair[1]
+             }
+           }
+       }
+
+      getCookie()
+
+      function getAPI() {
+          $.ajax({
+            url: 'https://pokeapi.co/api/v2/pokemon/' + current_pokemon,
+            success: function(data, status) {
+              console.log(data);
+              if (data.sprites) {
+                  if (data.sprites.front_default && typeof(data.sprites.front_default)=="string") {
+                    var curr =  document.createElement('img');
+                    curr.src = data.sprites.front_default
+                    document.querySelector('body').appendChild(curr);
+                  }
+
+              }
+            },
+            error: function(request, data, status)  {
+              console.log(data);
             }
-          },
-          error: function(request, data, status)  {
-            console.log(data);
+          });
+        }
+
+        function getAPI2() {
+            $.ajax({
+              url: 'https://pokeapi.co/api/v2/pokemon/' + current_pokemon,
+              success: function(data, status) {
+                console.log(data);
+                if (data.sprites) {
+                    if (data.sprites.front_shiny && typeof(data.sprites.front_shiny)=="string") {
+                      var curr =  document.createElement('img');
+                      curr.src = data.sprites.front_shiny
+                      document.querySelector('body').appendChild(curr);
+                    }
+
+                }
+              },
+              error: function(request, data, status)  {
+                console.log(data);
+              }
+            });
           }
-        });
+
+        function getCurr() {
+          $.ajax({
+            // url:'data/chatroom.txt?nocache='+Math.random(),
+            url: '../inventory/' + cookie_username + '/pokemon_inventory.txt?nocache='+Math.random(),
+            type: 'GET',
+            data: {},
+            async:false,
+            success: function(data, status) {
+              console.log(data)
+              pokemon_holder = data.split(",")
+              for(let i =0; i < pokemon_holder.length; i++){
+                current_pokemon = pokemon_holder[i]
+                if(current_pokemon.includes("*")){
+                  current_pokemon = current_pokemon.slice(0, -1);
+                  getAPI2();
+                  console.log("shiny" + current_pokemon)
+                }
+                else{
+                  getAPI();
+                }
+              }
+            }
+          })
+        }
+
+      getCurr()
+
+
+    });
 
 
 
-      }); // end jQuery document ready function
+
 
 
 

@@ -150,8 +150,7 @@ var pokemonDict = { 'bulbasaur': ['https://projectpokemon.org/images/normal-spri
 'mewtwo': ['https://projectpokemon.org/images/normal-sprite/mewtwo.gif',4],
 'mew': ['https://projectpokemon.org/images/normal-sprite/mew.gif',4] }
 
-var shiny_pokemon_dict = {
-  'bulbasaur': ['https://projectpokemon.org/images/shiny-sprite/bulbasaur.gif',4],
+var shiny_pokemon_dict = { 'bulbasaur': ['https://projectpokemon.org/images/shiny-sprite/bulbasaur.gif',4],
 'ivysaur': ['https://projectpokemon.org/images/shiny-sprite/ivysaur.gif',4],
 'venusaur': ['https://projectpokemon.org/images/shiny-sprite/venusaur.gif',4],
 'charmander': ['https://projectpokemon.org/images/shiny-sprite/charmander.gif',4],
