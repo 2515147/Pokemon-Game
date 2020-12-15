@@ -164,7 +164,7 @@
         	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
         	<p class="card-text">10000 Pokecoins</p>
     	</div>
-        <p style="margin-bottom:85px">An extremely rare berry that increases the encounter rate of legendaries.</p>
+        <p style="margin-bottom:85px">An extremely rare berry that increases the encounter rate of legendary Pokemon.</p>
         <button class="btn btn-primary" data-amount="1" data-name="grazzberries" data-index= "1" data-price="10000">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="grazzberries" data-index= "1" data-price="100000">Buy 10</button>
       </div>
@@ -181,7 +181,7 @@
         	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
         	<p class="card-text">2500 Pokecoins</p>
     	</div>
-        <p style="margin-bottom:108px">A tropical berry that increases the coin drop rate.</p>
+        <p style="margin-bottom:108px">A tropical berry that increases the drop rate of Pokecoins.</p>
         <button class="btn btn-primary" data-amount="1" data-name="pinapberries" data-index= "2" data-price="2500">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="pinapberries" data-index= "2" data-price="25000">Buy 10</button>
       </div>
