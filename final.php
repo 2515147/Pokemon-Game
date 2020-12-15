@@ -370,7 +370,7 @@ console.log(shiny_pokemon_dict)
     const rarities = [
       ['Common', 100],
       ['Legendary', 1],
-      ['Shiny', 1]
+      ['Shiny', 1000]
     ]
     console.log(rarities)
 
@@ -412,6 +412,7 @@ console.log(shiny_pokemon_dict)
     }
 
 		var assets = []
+    var selected;
 		var encounter = []
     var encounter_name_holder = ""
 
@@ -424,12 +425,15 @@ console.log(shiny_pokemon_dict)
       console.log(test_Val)
       if(test_Val == 'Common'){
         assets = commons;
+        selected ="common"
       }
       else if (test_Val == 'Legendary'){
         assets = legendaries;
+        selected ="common"
       }
       else{
         assets = shinies;
+        selected = "shiny"
       }
 			let i = parseInt( Math.random() * assets.length )
 			encounter.push(assets[i][0])
@@ -453,14 +457,25 @@ console.log(shiny_pokemon_dict)
 
       titleDiv.innerHTML = encounter_name
       rarityDiv.innerHTML = "Rarity: "
-      for(let x=0; x < assets[i][2]; x++){
-        rarityDiv.innerHTML += "⭐"
-      }
-      console.log("assets: ", assets[i][2])
+      console.log("assets: ", assets[i][1])
 
+      // console.log("assets: ", assets[i][0][1])
 
 			// add our encounter sprite
-      card_container.src = assets[i][0]
+      if(selected == "shiny"){
+        for(let x=0; x < assets[i][0][1]; x++){
+          rarityDiv.innerHTML += "⭐"
+        }
+        card_container.src = assets[i][0][0]
+      }
+      else{
+        for(let x=0; x < assets[i][2]; x++){
+          rarityDiv.innerHTML += "⭐"
+        }
+        card_container.src = assets[i][0]
+      }
+			// add our encounter sprite
+
       card_container.style.margin = 'auto'
       card_container.style.width = '190px'
       card_container.style.height = '165px'
@@ -516,6 +531,10 @@ console.log(shiny_pokemon_dict)
   //
       if(ajaxHolder == 0){
         selected_pokeball = "pokeball"
+      }
+
+      if(selected == "shiny"){
+        encounter_name_holder = encounter_name_holder + "*"
       }
 
 
@@ -626,7 +645,7 @@ console.log(shiny_pokemon_dict)
           })
           }
 
-        
+
         var folder = "inventory/" + cookie_username + '/';
         update_picture();
         function update_picture() {
@@ -634,9 +653,9 @@ console.log(shiny_pokemon_dict)
               url : folder,
               success: function (data) {
                   $(data).find("a").attr("href", function (i, val) {
-                      if( val.match(/\.(png|jpg)$/) ) { 
+                      if( val.match(/\.(png|jpg)$/) ) {
                           $("#profile_pic").attr( "src", folder + val);
-                      } 
+                      }
                   });
               }
           });
