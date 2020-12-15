@@ -39,6 +39,14 @@
         border-color: #60a3bc !important;
         transition: all 0.4s ease 0s;
         }
+
+        #text{
+        	 color: #white;
+        	 font-family: 'Helvetica Neue', sans-serif;
+        	 font-style: italic; font-weight: 
+        	 normal; letter-spacing: normal; 
+        	 text-transform: none;
+        }
     </style>
   </head>
     <body>
@@ -152,6 +160,8 @@
     </div>
     <!--/.Card-->
   </div>
+    <div style="margin:auto; text-align: center; font-size: 20pt" id="text">
+    </div>
     </body>
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -179,6 +189,7 @@
               },
               success: function(data, status) {
                 console.log(data);
+                $('#text').html("Bought! You now have " + data);
               },
         error: function(request, data, status){
                 alert("You do not have enough funds to buy this item")
