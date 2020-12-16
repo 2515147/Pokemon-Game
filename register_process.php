@@ -35,6 +35,23 @@ for($k = 0; $k < sizeof($loginInfo) ; $k++){
   }
 }
 file_put_contents($file_path.'/accounts.txt', $username . ',' . $password . "\n", FILE_APPEND);
+
+// $pokeballsArray = $array('100,10,10,10,250');
+// $berriesArray = $array('2','2','2');
+mkdir($file_path .'/inventory' . '/'.$username, 0777, true);
+file_put_contents($file_path .'/inventory' . '/' .$username.'/berries.txt', '2,2,2');
+file_put_contents($file_path .'/inventory'. '/'  . $username.'/pokeballs.txt',  '100,10,10,10,250');
+
+// if (is_dir($file_path .'/inventory/'.$_COOKIE['username']) ) {
+//   mkdir('inventory/'.$_COOKIE['username'], 0777, true);
+//   // mkdir('inventory/'.$_COOKIE['username'].'/berries.txt', 0777, true);
+//   // mkdir('inventory/'.$_COOKIE['username'].'/pokeballs.txt', 0777, true);
+//   // file_put_contents('inventory/'.$_COOKIE['username'].'/berries.txt', $berriesArray);
+//   // file_put_contents('inventory/'.$_COOKIE['username'].'/pokeballs.txt', $pokeballsArray);
+// }
+
+
+
 header('Location: loginpage.php?newaccount=yes');
 exit();
 
