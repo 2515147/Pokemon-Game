@@ -12,14 +12,24 @@
         background-color: #373737;
         color:white;
       }
-
+      body{
+        background:url("https://i.imgur.com/szfEvMq.jpg");
+      }
       #container{
+        background-color: #373737;
+        color:white;
+        background: url("https://i.imgur.com/szfEvMq.jpg");
+        background-size: cover;
+        background-repeat:repeat;
+        position:absolute;
+        min-width:100%;
+        min-height:100%;
         display:inline-flex;
         margin:auto;
         width:100%;
-        background-color: #373737;
         justify-content: flex-start;
         margin-top:-15px;
+
       }
         button {
         color: #494949 !important;
@@ -46,6 +56,11 @@
         	 font-style: italic; font-weight: 
         	 normal; letter-spacing: normal; 
         	 text-transform: none;
+        }
+
+        .card{
+          width: 12rem;
+          height:35rem;
         }
     </style>
   </head>
@@ -76,7 +91,7 @@
     <!--/.Navbar -->
     <div id= "container">
     <!--Card-->
-    <div class="card" style="width: 12rem;">
+    <div class="card">
       <img style="width: 190px;" class="card-img-top" src="https://cdn.bulbagarden.net/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Pokeballs</h5>
