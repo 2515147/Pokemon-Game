@@ -11,18 +11,35 @@
       *{
         background-color: #373737;
         color:white;
+
+      }
+      body,html{
+        margin:auto;
       }
 
       #container{
+        background-color: #373737;
+        margin:auto;
+        color:white;
+        background: url("https://i.imgur.com/szfEvMq.jpg");
+        position:relative;
+        background-size: cover;
+        background-repeat:repeat;
+        position:absolute;
+        min-width:100%;
+        min-height:100%;
         display:inline-flex;
+
         margin:auto;
         width:100%;
-        background-color: #373737;
         justify-content: flex-start;
         margin-top:-15px;
+
+
       }
         button {
         color: #494949 !important;
+        margin:auto;
         text-transform: uppercase;
         border-radius: 25px;
         text-decoration: none;
@@ -34,6 +51,7 @@
 
         button:hover {
         color: #ffffff !important;
+        margin:auto;
         border-radius: 25px;
         background: #60a3bc !important;
         border-color: #60a3bc !important;
@@ -41,11 +59,24 @@
         }
 
         #text{
-        	 color: #white;
+        	 color: cyan;
         	 font-family: 'Helvetica Neue', sans-serif;
-        	 font-style: italic; font-weight:
-        	 normal; letter-spacing: normal;
+        	 font-style: italic; 
+           letter-spacing: normal; 
         	 text-transform: none;
+           z-index: 10;
+           width:500px;
+           padding-top:550px;
+           padding-right:100px;
+           height:200px;
+           position:relative;
+           background-color: rgb(0,0,0,0);
+           
+        }
+
+        .card{
+          width: 12rem;
+          height:35rem;
         }
     </style>
   </head>
@@ -76,7 +107,7 @@
     <!--/.Navbar -->
     <div id= "container">
     <!--Card-->
-    <div class="card" style="width: 12rem;">
+    <div class="card">
       <img style="width: 190px;" class="card-img-top" src="https://cdn.bulbagarden.net/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Pokeballs</h5>
@@ -187,7 +218,7 @@
       </div>
     </div>
     <!--/.Card-->
-  </div>
+    </div>
     <div style="margin:auto; text-align: center; font-size: 20pt" id="text">
     </div>
     </body>
