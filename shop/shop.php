@@ -115,7 +115,7 @@
         	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
         	<p class="card-text">  100 Pokecoins</p>
     	</div>
-        <p style="margin-bottom:40px">A device for catching wild PokÃ©mon. It's thrown like a ball, comfortably encapsulating its target.</p>
+        <p style="margin-bottom:40px">A device for catching wild Pokémon. It's thrown like a ball, comfortably encapsulating its target.</p>
         <button class="btn btn-primary" data-amount="1" data-name="pokeball" data-index= "0" data-price="100">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="pokeball" data-index= "0" data-price="1000">Buy 10</button>
       </div>
@@ -131,7 +131,7 @@
         <img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
         <p class="card-text">200 Pokecoins</p>
     	</div>
-        <p style="margin-bottom:88px">A high-performance Ball with a higher catch rate than a standard PokÃ© Ball.</p>
+        <p style="margin-bottom:88px">A high-performance Ball with a higher catch rate than a standard Poké Ball.</p>
         <button class="btn btn-primary" data-amount="1" data-name="greatball" data-index= "1" data-price="200">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="greatball" data-index= "1" data-price="2000">Buy 10</button>
       </div>
@@ -163,7 +163,7 @@
         	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
         	<p class="card-text">5000 Pokecoins</p>
     	</div>
-        <p>The best PokÃ© Ball with the ultimate level of performance. With it, you will catch any wild PokÃ©mon without fail.</p>
+        <p>The best Poké Ball with the ultimate level of performance. With it, you will catch any wild Pokémon without fail.</p>
         <button class="btn btn-primary" data-amount="1" data-name="masterball" data-index= "3" data-price="5000">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="masterball" data-index= "3" data-price="50000">Buy 10</button>
       </div>
@@ -179,7 +179,7 @@
         	<img style = 'width:25px;display:'src="https://cdn.bulbagarden.net/upload/f/f4/Pok%C3%A9Coin.png"></img>
         	<p class="card-text">2500 Pokecoins</p>
     	</div>
-        <p style="margin-bottom:110px">A berry that increase the capture chance of a wild PokÃ©mon.</p>
+        <p style="margin-bottom:110px">A berry that increase the capture chance of a wild Pokémon.</p>
         <button class="btn btn-primary" data-amount="1" data-name="razzberries" data-index= "0" data-price="2500">Buy 1</button>
         <button class="btn btn-primary" data-amount="10" data-name="razzberries" data-index= "0" data-price="25000">Buy 10</button>
       </div>
