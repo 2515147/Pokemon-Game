@@ -90,7 +90,7 @@
               aria-haspopup="true" aria-expanded="false">
               <span style="font-size:15pt"id ="welcome_msg" class="navbar-text">
               </span>
-              <img style="max-width:50px;" id="profile_pic" src="https://wallpaperaccess.com/full/24936.jpg" class="rounded-circle z-depth-0"
+              <img style="max-width:50px;" id="profile_pic" src="https://i.pinimg.com/originals/29/40/ea/2940ea49982a208c73902ac92201b7be.jpg" class="rounded-circle z-depth-0"
                 alt="avatar image">
             </a>
             <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
