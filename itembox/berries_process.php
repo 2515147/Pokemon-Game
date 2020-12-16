@@ -1,5 +1,5 @@
 <?php
-$file_path = '/Users/Arbiter/Documents/MAMP/webdev/game';
+include('../config.php');
 $berry_chosen = $_POST['berry'];
 
 $data = file_get_contents($file_path . '/' . 'inventory/' . $_COOKIE['username'] . '/berries.txt');
