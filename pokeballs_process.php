@@ -9,6 +9,9 @@ $split_items = explode(",", $data);
 
 $split_items[4] = $split_items[4] + $more_coins;
 if($pokeball_chosen == 'pokeball'){
+  if($split_items[0] <= 0){
+    $split_items[0] = 100;
+  }
   $split_items[0] = $split_items[0] - 1;
   $new_value = implode(",", $split_items);
   file_put_contents($file_path . 'inventory/' . $_COOKIE['username'] . '/pokeballs.txt', $new_value);
