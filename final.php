@@ -251,6 +251,89 @@
 
       </div>
     </div>
+    <?php
+      if (isset($_COOKIE['berry'])){
+        if($_COOKIE['berry'] == "grazz"){
+          ?>
+          <script>console.log("yo iwajjj grazz")
+          pokeballsDict = {
+            'pokeball' : 4,
+            'greatball' : 3,
+            'ultraball' : 2,
+            'masterball' : 1
+          }
+          var rarities = [
+            ['Common', 100],
+            ['Legendary', 1000],
+            ['Shiny', 1]
+          ]
+          currency_min = 200;
+          currency_max = 400;
+          </script>
+        <?php
+        }
+        else if($_COOKIE['berry'] == "pinap"){
+          ?>
+          <script>console.log("yo iwajjj pinap")
+        pokeballsDict = {
+          'pokeball' : 4,
+          'greatball' : 3,
+          'ultraball' : 2,
+          'masterball' : 1
+        }
+        var rarities = [
+          ['Common', 100],
+          ['Legendary', 1],
+          ['Shiny', 1]
+        ]
+        currency_min = 500;
+        currency_max = 800;
+        </script>
+        <?php
+      }
+      else if($_COOKIE['berry'] == "razz"){
+        ?>
+        <script>console.log("yo iwajjj razz")
+        pokeballsDict = {
+          'pokeball' : 1,
+          'greatball' : 1,
+          'ultraball' : 1,
+          'masterball' : 1
+        }
+        var rarities = [
+          ['Common', 100],
+          ['Legendary', 1],
+          ['Shiny', 1]
+        ]
+        currency_min = 200;
+        currency_max = 400;
+        </script>
+        <?php
+      }
+
+    }
+    else{
+      ?>
+      <script>
+      pokeballsDict = {
+        'pokeball' : 4,
+        'greatball' : 3,
+        'ultraball' : 2,
+        'masterball' : 1
+      }
+      var rarities = [
+        ['Common', 100],
+        ['Legendary', 1],
+        ['Shiny', 1]
+      ]
+      currency_min = 200;
+      currency_max = 400;
+      </script>
+      <?php
+    }
+    ?>
+
+
 
 
 	<!-- bring in jQuery Library -->
@@ -275,13 +358,22 @@
 		let explore_button = document.getElementById('explore_btn')
 		let catch_button = document.getElementById('catch_btn')
 
-//weight for ball catchrate
- pokeballsDict = {
-   'pokeball' : 4,
-   'greatball' : 3,
-   'ultraball' : 2,
-   'masterball' : 1
- }
+//     currency_min = 200;
+//     currency_max = 400;
+//
+//     var rarities = [
+//       ['Common', 100],
+//       ['Legendary', 1],
+//       ['Shiny', 1]
+//     ]
+//
+// //weight for ball catchrate
+//  pokeballsDict = {
+//    'pokeball' : 4,
+//    'greatball' : 3,
+//    'ultraball' : 2,
+//    'masterball' : 1
+//  }
 
  let selected_pokeball = "pokeball"
 
@@ -367,11 +459,7 @@ console.log(shiny_pokemon_dict)
     var commons = []
     var legendaries = []
     var shinies = []
-    const rarities = [
-      ['Common', 100],
-      ['Legendary', 1],
-      ['Shiny', 1000]
-    ]
+
     console.log(rarities)
 
     legendaryKeys = ['mew', 'mewtwo', 'articuno', 'moltres', 'zapdos']
@@ -492,7 +580,7 @@ console.log(shiny_pokemon_dict)
       let winningValue = 1
       let ajaxHolder;
       let ball_rng = pokeballsDict[selected_pokeball]
-      let currency_gain = (parseInt( Math.random() * 400)) + 200
+      let currency_gain = (parseInt( Math.random() * currency_max)) + currency_min
       console.log(currency_gain)
       let rng = (parseInt( Math.random() * ball_rng)) + 1
       console.log(rng)
