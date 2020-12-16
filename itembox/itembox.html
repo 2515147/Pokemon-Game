@@ -141,6 +141,9 @@
       	width:300px;
       	height:200px;
      }
+     #container a{
+         max-height:200px;
+     }
 
     </style>
   </head>
@@ -210,19 +213,19 @@
 
 	<div id="razz" class="modal">
 	 <p>A berry that increase the capture chance of a wild Pokemon.</p>
-	 <button><a href="#" rel="modal:close">Use Item</a></button>
+	 <button id="use_item" data-name="razz"><a href="#" rel="modal:close">Use Item</a></button>
 	 <button><a href="#" rel="modal:close">Don't Use</a></button>
 	</div>
 
 	<div id="grazz" class="modal">
 	 <p>An extremely rare berry that increases the encounter rate of legendary Pokemon.</p>
-	 <button><a href="#" rel="modal:close">Use Item</a></button>
+	 <button id="use_item" data-name="grazz"><a href="#" rel="modal:close">Use Item</a></button>
 	 <button><a href="#" rel="modal:close">Don't Use</a></button>
 	</div>
 
 	<div id="pinap" class="modal">
 	 <p>A tropical berry that increases the drop rate of Pokecoins.</p>
-	 <button><a href="#" rel="modal:close">Use Item</a></button>
+	 <button id="use_item" data-name="pinap"><a href="#" rel="modal:close">Use Item</a></button>
 	 <button><a href="#" rel="modal:close">Don't Use</a></button>
 	</div>
 
@@ -237,6 +240,7 @@
     var pokemon_holder;
     var current_pokemon;
     var item_divs = document.querySelectorAll(".quantity");
+    var use_buttons = document.querySelectorAll("#use_item")
 
     function getCookie() {
        // Split cookie string and get all individual name=value pairs in an array
@@ -289,6 +293,36 @@
     }
     getCurr()
     getCurr2()
+
+    for (let i=0; i < use_buttons.length; i++){
+      use_buttons[i].onclick = function(event){
+        let holder = use_buttons[i].dataset.name
+        console.log(holder)
+        $.ajax({
+          url: 'berries_process.php',
+          type: 'POST',
+          data: {
+            berry: holder,
+          },
+          // async:false,
+          success: function(data, status) {
+            console.log("hey")
+            console.log(data);
+            getCurr2();
+          },
+    error: function(request, data, status){
+            console.log("failed")
+          }
+        })
+
+      }
+    }
+
+    function buyItems(){
+
+
+
+    }
 
 
 
